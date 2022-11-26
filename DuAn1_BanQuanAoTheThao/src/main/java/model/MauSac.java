@@ -43,7 +43,7 @@ public class MauSac implements Serializable{
         this.ma = ma;
         this.ten = ten;
         this.trangThai = trangThai;
-        this.ngayThem = ngayThem;
+        this.ngayThem = new java.sql.Date(new Date().getTime());
         this.ngaySua = ngaySua;
     }
 

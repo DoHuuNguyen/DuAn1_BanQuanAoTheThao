@@ -57,7 +57,7 @@ public class ChiTietSanPham {
         this.IdMauSac = IdMauSac;
         this.IdSize = IdSize;
         this.trangThai = trangThai;
-        this.ngayThem = ngayThem;
+        this.ngayThem = new java.sql.Date(new Date().getTime());
         this.ngaySua = ngaySua;
     }
 

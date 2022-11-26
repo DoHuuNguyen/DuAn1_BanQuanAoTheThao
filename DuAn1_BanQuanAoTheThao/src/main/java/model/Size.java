@@ -99,6 +99,11 @@ public class Size implements Serializable{
     public void setNgaySua(Date ngaySua) {
         this.ngaySua = ngaySua;
     }
+
+    @Override
+    public String toString() {
+        return  size ;
+    }
     
     
 }
