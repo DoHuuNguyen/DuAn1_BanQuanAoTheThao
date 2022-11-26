@@ -94,6 +94,11 @@ public class MauSac implements Serializable{
     public void setNgaySua(Date ngaySua) {
         this.ngaySua = ngaySua;
     }
+
+    @Override
+    public String toString() {
+        return ten;
+    }
     
     
 }
