@@ -15,7 +15,7 @@ public class MonTheThaoRepository {
 
     public ArrayList<MonTheThao> getList() {
         session = HibernateConfig.getFACTORY().openSession();
-        String query = "from MonTheThao where trangThai =:trangThai";
+        String query = "From MonTheThao where trangThai =:trangThai";
         Query q = session.createQuery(query);
         q.setParameter("trangThai", 1);
         ArrayList<MonTheThao> list = (ArrayList<MonTheThao>) q.getResultList();
@@ -30,7 +30,7 @@ public class MonTheThaoRepository {
 
     public void update(Integer id, MonTheThao mtt) {
         session.beginTransaction();
-        String query = "Update Size set ma=:ma, ten=:ten, ngaySua=:ngaySua where id=:id";
+        String query = "Update MonTheThao set ma=:ma, ten=:ten, ngaySua=:ngaySua where id=:id";
         Query q = session.createQuery(query);
         q.setParameter("ma", mtt.getMa());
         q.setParameter("ten", mtt.getTen());
@@ -41,7 +41,7 @@ public class MonTheThaoRepository {
     }
     public void delete(Integer id){
         session.beginTransaction();
-        String query = "update MonTheThao set trangThai =:trangThai WHERE id=:id";
+        String query = "Update MonTheThao set trangThai =:trangThai WHERE id=:id";
         Query q = session.createQuery(query);
         q.setParameter("trangThai", 0);
         q.setParameter("id", id);

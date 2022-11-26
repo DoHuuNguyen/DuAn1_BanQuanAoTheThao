@@ -31,4 +31,9 @@ public class MonTheThaoServiceImpl implements QuanLyMonTheThao{
     public void delete(Integer id) {
         this.mttR.delete(id);
     }
+
+    @Override
+    public ArrayList<String> selectma() {
+        return this.mttR.selectMa();
+    }
 }

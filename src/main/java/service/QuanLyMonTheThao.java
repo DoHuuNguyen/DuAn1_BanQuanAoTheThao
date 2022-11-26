@@ -8,4 +8,5 @@ public interface QuanLyMonTheThao {
     void insert(MonTheThao mtt);
     void update(MonTheThao mtt, Integer id);
     void delete(Integer id);
+    ArrayList<String> selectma();
 }
