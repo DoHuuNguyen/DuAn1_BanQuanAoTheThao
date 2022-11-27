@@ -9,6 +9,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
     private NguoiDung ng;
     public ManHinhQuanLy() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     public ManHinhQuanLy(NguoiDung ng) {
         this.ng = ng;
@@ -171,6 +172,11 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                 menuMauSacMouseClicked(evt);
             }
         });
+        menuMauSac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMauSacActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuMauSac);
 
         menuSize.setText("Size");
@@ -179,12 +185,22 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                 menuSizeMouseClicked(evt);
             }
         });
+        menuSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSizeActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuSize);
 
         menuMonTT.setText("Môn Thể Thao");
         menuMonTT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuMonTTMouseClicked(evt);
+            }
+        });
+        menuMonTT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMonTTActionPerformed(evt);
             }
         });
         jMenu1.add(menuMonTT);
@@ -285,6 +301,23 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         this.setVisible(false);
         new BanHangView(ng).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void menuMonTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMonTTActionPerformed
+    this.setVisible(false);
+    new MonTheThaoView().setVisible(true);
+    }//GEN-LAST:event_menuMonTTActionPerformed
+
+    private void menuSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSizeActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new SizeView().setVisible(true);
+    }//GEN-LAST:event_menuSizeActionPerformed
+
+    private void menuMauSacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMauSacActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new MauSacView().setVisible(true);
+    }//GEN-LAST:event_menuMauSacActionPerformed
 
     /**
      * @param args the command line arguments
