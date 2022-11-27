@@ -39,7 +39,7 @@ public class ChiTietSanPham {
      @Column (name = "TrangThai")
     private int trangThai;
     
-    @Column (name = "NgayTao")
+    @Column (name = "NgayThem")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date ngayThem;
     
