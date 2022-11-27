@@ -7,6 +7,7 @@ import model.ChucVu;
 import org.hibernate.Session;
 
 public class ChucVuRepository {
+
     private Session session;
 
     public ChucVuRepository() {
@@ -39,7 +40,8 @@ public class ChucVuRepository {
         q.executeUpdate();
         session.getTransaction().commit();
     }
-    public void delete(Integer id){
+
+    public void delete(Integer id) {
         session.beginTransaction();
         String query = "update ChucVu set trangThai =:trangThai WHERE id=:id";
         Query q = session.createQuery(query);
@@ -48,6 +50,7 @@ public class ChucVuRepository {
         q.executeUpdate();
         session.getTransaction().commit();
     }
+
     public ArrayList<String> selectMa() {
         String query = "SELECT s.ma from ChucVu s";
         Query q = session.createQuery(query);
