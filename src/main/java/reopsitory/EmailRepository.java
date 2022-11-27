@@ -18,8 +18,8 @@ import java.util.Properties;
  * @author vuong
  */
 public class EmailRepository {
-    private static final String email = "phuocvvph23075@fpt.edu.vn";
-    private static final String pass = "vanvuong@";
+    private static final String email = "nguyendhph23086@fpt.edu.vn";
+    private static final String pass = "mnkfjdqlxlkbntqh";
     
     public static String sendEmail(String mailNhan){
         int code = (int) Math.floor(((Math.random() * 899999) + 100000));

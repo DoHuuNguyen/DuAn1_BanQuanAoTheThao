@@ -70,6 +70,8 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
 
         lblAnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        lblTenNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         jLabel2.setText("Mã :");
 
         jLabel3.setText("Chức Vụ :");
@@ -131,7 +133,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                         .addComponent(btnDoiMK, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnDoiMK1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +307,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
 
     private void btnDoiMKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMKActionPerformed
         dispose();
-        new DoiMatKhauView().setVisible(true);
+        new ChangePass().setVisible(true);
     }//GEN-LAST:event_btnDoiMKActionPerformed
 
     private void menuHTTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHTTRActionPerformed

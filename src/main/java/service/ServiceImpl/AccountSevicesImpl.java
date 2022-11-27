@@ -52,9 +52,4 @@ public class AccountSevicesImpl implements QuanLyAccountServices {
         return AccountR.search(user, pass);
     }
 
-    public static void main(String[] args) {
-        String passW = "123";
-        System.out.println(passW.matches(passW));
-    }
-
 }

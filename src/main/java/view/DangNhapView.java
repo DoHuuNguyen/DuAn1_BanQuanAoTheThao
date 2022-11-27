@@ -13,12 +13,7 @@ import service.QuanLyNguoiDung;
 import service.ServiceImpl.AccountSevicesImpl;
 import service.ServiceImpl.NguoiDungimpl;
 
-/**
- *
- * @author vuong
- */
 public class DangNhapView extends javax.swing.JFrame {
-
     private QuanLyAccountServices qlas = new AccountSevicesImpl();
     private QuanLyNguoiDung qlnd = new NguoiDungimpl();
     public DangNhapView() {
@@ -152,8 +147,7 @@ public class DangNhapView extends javax.swing.JFrame {
            }else{
                JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
                this.setVisible(false);
-               new ManHinhNhanVien(getNguoiDung()).setVisible(true);
-               
+               new ManHinhNhanVien(getNguoiDung()).setVisible(true); 
            }
        }else{
            JOptionPane.showMessageDialog(this, "tài khoản hoặc mật khẩu không đúng");
@@ -178,6 +172,9 @@ public class DangNhapView extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
            }
        }
+            else{
+                JOptionPane.showMessageDialog(this, "tài khoản hoặc mật khẩu không đúng");
+            }
         }
         
     }//GEN-LAST:event_txt_passKeyPressed

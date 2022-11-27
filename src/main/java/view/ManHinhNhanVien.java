@@ -13,7 +13,6 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "nó vào đây");
     }
     public ManHinhNhanVien(NguoiDung ng) {
-        initComponents();
         this.ng = ng;
         initComponents();
         setLocationRelativeTo(null);
@@ -69,6 +68,8 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblAnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblTenNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel2.setText("Mã :");
 
@@ -131,7 +132,7 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
                         .addComponent(btnDoiMK, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnDoiMK1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +275,6 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuMauSacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMauSacMouseClicked
-
         new MauSacView().setVisible(true);
     }//GEN-LAST:event_menuMauSacMouseClicked
 
@@ -329,7 +329,7 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
 
     private void btnDoiMKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMKActionPerformed
         dispose();
-        new DoiMatKhauView().setVisible(true);
+        new ChangePass().setVisible(true);
     }//GEN-LAST:event_btnDoiMKActionPerformed
 
     private void btnDoiMK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMK1ActionPerformed

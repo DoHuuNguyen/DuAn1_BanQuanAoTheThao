@@ -151,7 +151,7 @@ public class BanHangView extends javax.swing.JFrame {
     
     public void fillData(HoaDon hd) {
         txtma.setText(hd.getMa().toString());
-        txNguoiTao.setText(hd.getIdNguoiDung().toString());
+        txNguoiTao.setText(hd.getIdNguoiDung().getHoTen());
         txtNgayTao.setText(hd.getNgayMua().toString());
         txtTongTien.setText(hd.getTongTien() + "");
     }
@@ -514,7 +514,11 @@ public class BanHangView extends javax.swing.JFrame {
         if (getHoaDon() == null) {
             JOptionPane.showMessageDialog(rootPane, "Chưa chọn hóa đơn cụ thể !");
         } else {
-            int row = tb_sanpham.getSelectedRow();
+            if(getHoaDon().getTinhTrang()==1){
+                JOptionPane.showMessageDialog(this, "Hóa đơn này đã được thanh toán");
+                return;
+            } else{
+                int row = tb_sanpham.getSelectedRow();
             int choose = JOptionPane.showConfirmDialog(rootPane, "Thêm vào hóa đơn ?");
             if(choose != JOptionPane.OK_OPTION){
                 return;
@@ -536,7 +540,7 @@ public class BanHangView extends javax.swing.JFrame {
                 addRowGioHang();
                 loadSanPham();
             }
-            
+            } 
         }
     }//GEN-LAST:event_tb_sanphamMouseClicked
 
