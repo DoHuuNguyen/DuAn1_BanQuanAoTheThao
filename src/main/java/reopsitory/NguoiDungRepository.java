@@ -38,7 +38,7 @@ public class NguoiDungRepository {
 
     public void update(Integer id, NguoiDung nd) {
         session.beginTransaction();
-        String query = "Update NguoiDung set ma=:ma, ten=:ten,GioiTinh=:GioiTinh,NgaySinh=:NgaySinh,Email=:Email,DiaChi=:DiaChi,IdChucVu=:IdChucVu,Anh=:Anh, ngaySua=:ngaySua where id=:id";
+        String query = "Update NguoiDung set ma=:ma, Ten=:ten,GioiTinh=:GioiTinh,NgaySinh=:NgaySinh,Email=:Email,DiaChi=:DiaChi,IdChucVu=:IdChucVu,Anh=:Anh, ngaySua=:ngaySua where id=:id";
         Query q = session.createQuery(query);
         q.setParameter("ma", nd.getMa());
         q.setParameter("ten", nd.getHoTen());
