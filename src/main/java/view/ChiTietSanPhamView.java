@@ -235,11 +235,13 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         if(ct == null){
             return;
         }
-        if(txtMa.getText().equals(ctspS.selectMa())){
-            JOptionPane.showMessageDialog(this, "mã này đã tồn tại");
-            return;
+        for (String string : this.ctspS.selectMa()) {
+            if (this.txtMa.getText().equals(string)) {
+                JOptionPane.showMessageDialog(this, "Trùng mã");
+                return;
+            }
         }
-        this.ctspS.insert(ct);
+       this.ctspS.insert(ct);
         JOptionPane.showMessageDialog(this, "thêm thành công");
         load();
         clear();

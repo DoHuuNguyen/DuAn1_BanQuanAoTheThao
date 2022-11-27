@@ -242,9 +242,11 @@ public class MonTheThaoView extends javax.swing.JFrame {
         {
             return;
         }
-        if(this.txtma.getText().equals(this.qlmtt.selectma())){
-            JOptionPane.showMessageDialog(this, "Trùng mã");
-            return;
+        for (String string : this.qlmtt.selectma()) {
+            if (this.txtma.getText().equals(string)) {
+                JOptionPane.showMessageDialog(this, "Trùng mã");
+                return;
+            }
         }
         this.qlmtt.insert(s);
         JOptionPane.showMessageDialog(this, "Thêm thành công");
