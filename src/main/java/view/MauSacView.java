@@ -244,9 +244,11 @@ public class MauSacView extends javax.swing.JFrame {
         {
             return;
         }
-        if(this.txtma.getText().equals(this.qlms.selectMa())){
-            JOptionPane.showMessageDialog(this, "Trùng mã");
-            return;
+        for (String string : this.qlms.selectMa()) {
+            if (this.txtma.getText().equals(string)) {
+                JOptionPane.showMessageDialog(this, "Trùng mã");
+                return;
+            }
         }
         this.qlms.insert(s);
         JOptionPane.showMessageDialog(this, "Thêm thành công");
