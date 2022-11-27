@@ -59,19 +59,19 @@ public class NguoiDung {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date ngaySua;
     
-    @OneToMany(mappedBy = "idNguoiDung", fetch = FetchType.LAZY)
-    List<HoaDon> hoaDons;
-    
-    @OneToOne(mappedBy = "idNguoiDung", fetch = FetchType.LAZY)
-    GioHang gioHangs;
-    
-    @OneToOne(mappedBy = "idNguoiDung")
-    private Account idAccount;
+//    @OneToMany(mappedBy = "idNguoiDung", fetch = FetchType.LAZY)
+//    List<HoaDon> hoaDons;
+//    
+//    @OneToOne(mappedBy = "idNguoiDung", fetch = FetchType.LAZY)
+//    GioHang gioHangs;
+//    
+//    @OneToOne(mappedBy = "idNguoiDung")
+//    private Account idAccount;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(Integer id, String ma, String hoTen, int gioiTinh, Date ngaySinh, String email, String diaChi, String anh, ChucVu idChucVu,  int trangThai, Date ngayThem, Date ngaySua, List<HoaDon> hoaDons, GioHang gioHangs, Account acc) {
+    public NguoiDung(Integer id, String ma, String hoTen, int gioiTinh, Date ngaySinh, String email, String diaChi, ChucVu idChucVu, String anh, int trangThai, Date ngayThem, Date ngaySua) {
         this.id = id;
         this.ma = ma;
         this.hoTen = hoTen;
@@ -79,14 +79,11 @@ public class NguoiDung {
         this.ngaySinh = ngaySinh;
         this.email = email;
         this.diaChi = diaChi;
-        this.anh = anh;
         this.idChucVu = idChucVu;
+        this.anh = anh;
         this.trangThai = trangThai;
-        this.ngayThem = new java.sql.Date(new Date().getTime());
+        this.ngayThem = ngayThem;
         this.ngaySua = ngaySua;
-        this.hoaDons = hoaDons;
-        this.gioHangs = gioHangs;
-        this.idAccount = acc;
     }
 
     public Integer getId() {
@@ -111,14 +108,6 @@ public class NguoiDung {
 
     public void setHoTen(String hoTen) {
         this.hoTen = hoTen;
-    }
-
-    public String getGioiTinhCharecter() {
-        if (gioiTinh == 1) {
-            return "Nam";
-        } else {
-            return "Nữ";
-        }
     }
 
     public int getGioiTinh() {
@@ -153,14 +142,6 @@ public class NguoiDung {
         this.diaChi = diaChi;
     }
 
-    public String getAnh() {
-        return anh;
-    }
-
-    public void setAnh(String anh) {
-        this.anh = anh;
-    }
-
     public ChucVu getIdChucVu() {
         return idChucVu;
     }
@@ -169,6 +150,13 @@ public class NguoiDung {
         this.idChucVu = idChucVu;
     }
 
+    public String getAnh() {
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
+    }
 
     public int getTrangThai() {
         return trangThai;
@@ -193,34 +181,6 @@ public class NguoiDung {
     public void setNgaySua(Date ngaySua) {
         this.ngaySua = ngaySua;
     }
-
-    public List<HoaDon> getHoaDons() {
-        return hoaDons;
-    }
-
-    public void setHoaDons(List<HoaDon> hoaDons) {
-        this.hoaDons = hoaDons;
-    }
-
-    public GioHang getGioHangs() {
-        return gioHangs;
-    }
-
-    public void setGioHangs(GioHang gioHangs) {
-        this.gioHangs = gioHangs;
-    }
-
-    public Account getIdAccount() {
-        return idAccount;
-    }
-
-    public void setIdAccount(Account idAccount) {
-        this.idAccount = idAccount;
-    }
-
-    @Override
-    public String toString() {
-        return hoTen;
-    }
-
+    
 }
+   
