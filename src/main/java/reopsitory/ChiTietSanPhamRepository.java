@@ -30,8 +30,7 @@ public class ChiTietSanPhamRepository {
     public void update(Integer id, ChiTietSanPham ctsp){
         session.beginTransaction();
         String query = "update ChiTietSanPham set ma =:ma, IdMonTheThao =:IdMonTheThao, "
-                + "IdMauSac =:IdMauSac, IdSize =:IdSize, ngaySua =:ngaySua, Gia =: gia,soLuong=:soLuong"
-                + "where id =:id";
+                + "IdMauSac =:IdMauSac, IdSize =:IdSize, ngaySua =:ngaySua, Gia =: gia,soLuong=:soLuong where id =:id";
         Query q = session.createQuery(query);
         q.setParameter("ma", ctsp.getMa());
         q.setParameter("IdMonTheThao", ctsp.getIdMonTheThao());
@@ -77,7 +76,7 @@ public class ChiTietSanPhamRepository {
     }
     public void updateSoLuong(Integer id, int soLuong){
         session.beginTransaction();
-        String query = "update ChiTietSanPham set soLuong=:soLuong"
+        String query = "update ChiTietSanPham set soLuong=:soLuong \n"
                 + "where id =:id";
         Query q = session.createQuery(query);
         q.setParameter("soLuong", soLuong);
