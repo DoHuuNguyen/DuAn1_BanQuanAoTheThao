@@ -17,8 +17,10 @@ import javax.swing.table.DefaultTableModel;
 import model.Account;
 import model.ChucVu;
 import model.NguoiDung;
+import service.QuanLyAccountServices;
 import service.QuanLyChucVuServices;
 import service.QuanLyNguoiDung;
+import service.ServiceImpl.AccountSevicesImpl;
 import service.ServiceImpl.ChucVuServicesImpl;
 import service.ServiceImpl.NguoiDungimpl;
 
@@ -32,7 +34,7 @@ public class NguoiDungView extends javax.swing.JFrame {
     private DefaultComboBoxModel defaultComboBoxModel;
     private QuanLyNguoiDung qlnd = new NguoiDungimpl();
     private QuanLyChucVuServices qlcv = new ChucVuServicesImpl();
-
+    private QuanLyAccountServices qlAc = new AccountSevicesImpl();
     /**
      * Creates new form NguoiDungView
      */
@@ -40,6 +42,7 @@ public class NguoiDungView extends javax.swing.JFrame {
         initComponents();
         load();
         addCbxidchucvu();
+        setLocationRelativeTo(null);
     }
 
     private void load() {
@@ -119,11 +122,11 @@ public class NguoiDungView extends javax.swing.JFrame {
         this.txt_email.setText("");
         this.txt_diachi.setText("");
         this.cbx_chucvu.setSelectedIndex(0);
-
+        this.lblImg.setIcon(null);
     }
     public Account createAccount(NguoiDung ng) {
         return new Account(null, txt_email.getText().trim(),
-                "12345678", ng, 1);
+                "1", ng, 1);
     }
     public ImageIcon resizeImage(String imgPath) {
         ImageIcon imageIcon = new ImageIcon(imgPath);
@@ -362,14 +365,20 @@ public class NguoiDungView extends javax.swing.JFrame {
         if (nd == null) {
             return;
         }
-//        for (String string : this.qlnd.selectma()) {
-//            if (this.txt_ma.getText().equals(string)) {
-//                JOptionPane.showMessageDialog(this, "Trùng mã");
-//                return;
-//            }
-//        }
+        for (String string : this.qlnd.selectma()) {
+            if (this.txt_ma.getText().equals(string)) {
+                JOptionPane.showMessageDialog(this, "Trùng mã");
+                return;
+            }
+        }
+        
+        if(txt_email.getText().trim().equals(this.qlnd.email(txt_email.getText().trim()))){
+            JOptionPane.showMessageDialog(this, "email đã tồn tại");
+            return;
+        }
         this.qlnd.insert(nd);
-        createAccount(nd);
+        
+        this.qlAc.insert(createAccount(nd));
         JOptionPane.showMessageDialog(this, "thêm thành công");
         load();
         clear();
