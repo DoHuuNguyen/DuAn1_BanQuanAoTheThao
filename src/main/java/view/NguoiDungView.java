@@ -29,6 +29,7 @@ import service.ServiceImpl.NguoiDungimpl;
  * @author thean
  */
 public class NguoiDungView extends javax.swing.JFrame {
+    private NguoiDung ng;
     private String imgPath = "";
     private DefaultTableModel defaultTableModel;
     private DefaultComboBoxModel defaultComboBoxModel;
@@ -44,7 +45,13 @@ public class NguoiDungView extends javax.swing.JFrame {
         addCbxidchucvu();
         setLocationRelativeTo(null);
     }
-
+    public NguoiDungView(NguoiDung ng) {
+        this.ng = ng;
+        initComponents();
+        load();
+        addCbxidchucvu();
+        setLocationRelativeTo(null);
+    }
     private void load() {
         defaultTableModel = (DefaultTableModel) this.tb_nguoidung.getModel();
         defaultTableModel.setRowCount(0);
@@ -164,8 +171,6 @@ public class NguoiDungView extends javax.swing.JFrame {
         cbx_gioitinh = new javax.swing.JComboBox<>();
         cbx_chucvu = new javax.swing.JComboBox<>();
         lblImg = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("NGƯỜI DÙNG");

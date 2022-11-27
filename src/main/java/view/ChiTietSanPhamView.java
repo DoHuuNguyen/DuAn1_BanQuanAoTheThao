@@ -57,7 +57,9 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                 c.getMa(),
                 c.getIdMonTheThao().getTen(),
                 c.getIdMauSac().getTen(),
-                c.getIdSize().getSize()
+                c.getIdSize().getSize(),
+                c.getSoLuong(),
+                c.getGia()
             };
             dtm.addRow(row);
         }
@@ -68,8 +70,8 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"bạn chưa nhập mã");
             return null;
         }
-        int gia = Integer.parseInt(txtGia.getText());
-        int sl = Integer.parseInt(txtSoLuong.getText());
+        int gia = Integer.valueOf(txtGia.getText().trim());
+        int sl = Integer.valueOf(txtSoLuong.getText().trim());
        return new ChiTietSanPham(null, ma, (MonTheThao)cbbMonTT.getSelectedItem(), (MauSac)cbbMauSac.getSelectedItem(), (Size)CbbSize.getSelectedItem(), 1,gia,sl, null, null);
     }
     private void clear(){
@@ -80,6 +82,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         this.CbbSize.setSelectedIndex(0);
         this.cbbMonTT.setSelectedIndex(0);
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -105,8 +108,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         txtGia = new javax.swing.JTextField();
         txtSoLuong = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btnSearch = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("Quản Lý Sản Phẩm");
@@ -126,15 +128,20 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Mã", "Môn Thể Thao", "Màu Sắc", "Size", "Số Lượng"
+                "ID", "Mã", "Môn Thể Thao", "Màu Sắc", "Size", "Số Lượng", "Giá"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblChiTietSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblChiTietSPMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblChiTietSP);
@@ -167,6 +174,13 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         jLabel7.setText("Giá :");
 
         jLabel8.setText("Số Lượng:");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,7 +222,11 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                     .addComponent(btnThem)
                     .addComponent(btnSua)
                     .addComponent(btnXoa)
-                    .addComponent(btnClear))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnClear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSearch)))
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -245,7 +263,9 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnXoa)
                         .addGap(18, 18, 18)
-                        .addComponent(btnClear)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnClear)
+                            .addComponent(btnSearch))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CbbSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,6 +335,34 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_btnXoaActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        ChiTietSanPham ct = new ChiTietSanPham((MonTheThao)cbbMonTT.getSelectedItem(), (MauSac)cbbMauSac.getSelectedItem(), (Size)CbbSize.getSelectedItem());
+        this.ctspS.loc(ctsp);
+        dtm  = (DefaultTableModel)this.tblChiTietSP.getModel();
+        dtm.setRowCount(0);
+        for (ChiTietSanPham c : this.ctspS.loc(ct)) {
+            Object[] row = {
+              c.getId(),
+                c.getMa(),
+                c.getIdMonTheThao().getTen(),
+                c.getIdMauSac().getTen(),
+                c.getIdSize().getSize()
+            };
+            dtm.addRow(row);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void tblChiTietSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChiTietSPMouseClicked
+       int row = this.tblChiTietSP.getSelectedRow();
+       txtID.setText(tblChiTietSP.getValueAt(row, 0).toString());
+       txtMa.setText(tblChiTietSP.getValueAt(row, 1).toString());
+       CbbSize.setSelectedItem(tblChiTietSP.getValueAt(row, 4).toString());
+       cbbMauSac.setSelectedItem(tblChiTietSP.getValueAt(row, 3).toString());
+       cbbMonTT.setSelectedItem(tblChiTietSP.getValueAt(row, 2).toString());
+       txtSoLuong.setText(tblChiTietSP.getValueAt(row, 5).toString());
+       txtGia.setText(tblChiTietSP.getValueAt(row, 6).toString());
+    }//GEN-LAST:event_tblChiTietSPMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -353,6 +401,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbbSize;
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;

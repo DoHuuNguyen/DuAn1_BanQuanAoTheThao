@@ -46,4 +46,9 @@ public class ChiTietSanPhamServiceImpl implements QuanLyChiTietSanPham{
     public void updateSL(Integer id, int soLuong) {
         this.ctspR.updateSoLuong(id, soLuong);
     }
+
+    @Override
+    public ArrayList<ChiTietSanPham> loc(ChiTietSanPham ctsp) {
+        return this.ctspR.loc(ctsp);
+    }
 }

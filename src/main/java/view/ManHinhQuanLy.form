@@ -44,6 +44,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuHTTRActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Chi Ti&#x1ebf;t S&#x1ea3;n Ph&#x1ea9;m"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem1MouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
@@ -57,6 +66,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuCVMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCVActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuNhanVien">
@@ -65,6 +75,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuNhanVienMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNhanVienActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -81,6 +92,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng K&#xea;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -124,9 +138,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblAnh" pref="134" max="32767" attributes="0"/>
                               <Component id="lblTenNV" max="32767" attributes="0"/>
@@ -146,20 +160,22 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblMa" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="lblCHucVu" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="lblGT" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="lblNgaySinh" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="lblDiaChi" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="lblEmai" min="-2" pref="91" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                           <Component id="btnDoiMK" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnDoiMK1" min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblMa" min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="lblCHucVu" min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="lblGT" min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="lblNgaySinh" min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="lblDiaChi" min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="lblEmai" min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
@@ -215,9 +231,12 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
-                  <Component id="btnDoiMK" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnDoiMK" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDoiMK1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -283,6 +302,14 @@
         <Component class="javax.swing.JLabel" name="lblDiaChi">
         </Component>
         <Component class="javax.swing.JLabel" name="lblEmai">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnDoiMK1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng Xu&#x1ea5;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoiMK1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

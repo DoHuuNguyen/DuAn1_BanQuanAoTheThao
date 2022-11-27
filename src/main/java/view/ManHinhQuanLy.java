@@ -9,12 +9,13 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
     private NguoiDung ng;
     public ManHinhQuanLy() {
         initComponents();
-        setLocationRelativeTo(null);
     }
     public ManHinhQuanLy(NguoiDung ng) {
         this.ng = ng;
         initComponents();
+        setLocationRelativeTo(null);
         fillData(ng);
+        
     }
     public ImageIcon resizeImage(String imgPath) {
         ImageIcon imageIcon = new ImageIcon(imgPath);
@@ -52,12 +53,14 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         lblNgaySinh = new javax.swing.JLabel();
         lblDiaChi = new javax.swing.JLabel();
         lblEmai = new javax.swing.JLabel();
+        btnDoiMK1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuMauSac = new javax.swing.JMenuItem();
         menuSize = new javax.swing.JMenuItem();
         menuMonTT = new javax.swing.JMenuItem();
         menuHTTR = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuCV = new javax.swing.JMenuItem();
         menuNhanVien = new javax.swing.JMenuItem();
@@ -87,14 +90,21 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
             }
         });
 
+        btnDoiMK1.setText("Đăng Xuất");
+        btnDoiMK1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoiMK1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblAnh, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(lblTenNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -108,18 +118,20 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCHucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmai, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
                         .addComponent(btnDoiMK, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCHucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblGT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmai, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDoiMK1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -159,9 +171,11 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(lblEmai, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(btnDoiMK)
-                .addGap(17, 17, 17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDoiMK)
+                    .addComponent(btnDoiMK1))
+                .addGap(19, 19, 19))
         );
 
         jMenu1.setText("Sản Phẩm");
@@ -213,6 +227,19 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         });
         jMenu1.add(menuHTTR);
 
+        jMenuItem1.setText("Chi Tiết Sản Phẩm");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Nhân Viên ");
@@ -223,12 +250,22 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                 menuCVMouseClicked(evt);
             }
         });
+        menuCV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCVActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuCV);
 
         menuNhanVien.setText("Người Dùng");
         menuNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuNhanVienMouseClicked(evt);
+            }
+        });
+        menuNhanVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNhanVienActionPerformed(evt);
             }
         });
         jMenu2.add(menuNhanVien);
@@ -244,6 +281,11 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu3.setText("Thống Kê");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -263,61 +305,85 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDoiMKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMKActionPerformed
-        this.setVisible(false);
+        dispose();
         new DoiMatKhauView().setVisible(true);
     }//GEN-LAST:event_btnDoiMKActionPerformed
 
     private void menuHTTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHTTRActionPerformed
-        this.setVisible(false);
+
         new HinhThucThanhToanView().setVisible(true);
     }//GEN-LAST:event_menuHTTRActionPerformed
 
     private void menuSizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSizeMouseClicked
-        this.setVisible(false);
+
         new SizeView().setVisible(true);
     }//GEN-LAST:event_menuSizeMouseClicked
 
     private void menuMonTTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMonTTMouseClicked
-        this.setVisible(false);
+
         new MonTheThaoView().setVisible(true);
     }//GEN-LAST:event_menuMonTTMouseClicked
 
     private void menuCVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCVMouseClicked
-        this.setVisible(false);
+
         new ChucVuView().setVisible(true);
     }//GEN-LAST:event_menuCVMouseClicked
 
     private void menuNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNhanVienMouseClicked
-        this.setVisible(false);
-        new NguoiDungView().setVisible(true);
+
     }//GEN-LAST:event_menuNhanVienMouseClicked
 
     private void menuMauSacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMauSacMouseClicked
-        this.setVisible(false);
+
         new MauSacView().setVisible(true);
     }//GEN-LAST:event_menuMauSacMouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        this.setVisible(false);
+
         new BanHangView(ng).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void menuMonTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMonTTActionPerformed
-    this.setVisible(false);
+
     new MonTheThaoView().setVisible(true);
     }//GEN-LAST:event_menuMonTTActionPerformed
 
     private void menuSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSizeActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+
         new SizeView().setVisible(true);
     }//GEN-LAST:event_menuSizeActionPerformed
 
     private void menuMauSacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMauSacActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+
         new MauSacView().setVisible(true);
     }//GEN-LAST:event_menuMauSacActionPerformed
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        new ChiTietSanPhamView().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void btnDoiMK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMK1ActionPerformed
+       dispose();
+       new DangNhapView().setVisible(true);
+    }//GEN-LAST:event_btnDoiMK1ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        new ChiTietSanPhamView().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void menuNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNhanVienActionPerformed
+        new NguoiDungView().setVisible(true);
+    }//GEN-LAST:event_menuNhanVienActionPerformed
+
+    private void menuCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCVActionPerformed
+        new ChucVuView().setVisible(true);
+    }//GEN-LAST:event_menuCVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,6 +422,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDoiMK;
+    private javax.swing.JButton btnDoiMK1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -367,6 +434,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAnh;
     private javax.swing.JLabel lblCHucVu;

@@ -29,10 +29,10 @@ public class ChiTietSanPhamRepository {
     
     public void update(Integer id, ChiTietSanPham ctsp){
         session.beginTransaction();
-        String query = "update ChiTietSanPham set ma =:ma, IdMonTheThao =:IdMonTheThao, "
+        String query = "update ChiTietSanPham set Ma =:ma, IdMonTheThao =:IdMonTheThao, "
                 + "IdMauSac =:IdMauSac, IdSize =:IdSize, ngaySua =:ngaySua, Gia =: gia,soLuong=:soLuong where id =:id";
         Query q = session.createQuery(query);
-        q.setParameter("ma", ctsp.getMa());
+        q.setParameter("Ma", ctsp.getMa());
         q.setParameter("IdMonTheThao", ctsp.getIdMonTheThao());
         q.setParameter("IdMauSac", ctsp.getIdMauSac());
         q.setParameter("IdSize", ctsp.getIdSize());
@@ -83,5 +83,16 @@ public class ChiTietSanPhamRepository {
         q.setParameter("id", id);
         q.executeUpdate();
         session.getTransaction().commit();
+    }
+    public ArrayList<ChiTietSanPham> loc(ChiTietSanPham ctsp){
+        session = HibernateConfig.getFACTORY().openSession();
+        Query q = session.createQuery("from ChiTietSanPham where IdMonTheThao =:IdMonTheThao or IdMauSac =:IdMauSac or IdSize =:IdSize"
+                + "or trangThai =:trangThai");
+        q.setParameter("IdMonTheThao", ctsp.getIdMonTheThao());
+        q.setParameter("IdMauSac", ctsp.getIdMauSac());
+        q.setParameter("IdSize", ctsp.getIdSize());
+         q.setParameter("trangThai", 1);
+        ArrayList<ChiTietSanPham> list = (ArrayList<ChiTietSanPham>) q.getResultList();
+        return list;
     }
 }

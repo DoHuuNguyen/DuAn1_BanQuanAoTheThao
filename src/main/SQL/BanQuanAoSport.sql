@@ -107,9 +107,9 @@ CREATE TABLE HoaDon(
 	IDNguoiDung int NOT NULL FOREIGN KEY REFERENCES dbo.NguoiDung(Id),
 	IDHinhThucThanhToan int NOT NULL FOREIGN KEY REFERENCES dbo.HinhThucThanhToan(Id),
 	NgayMua DATE NOT NULL,
-	Sdt VARCHAR(10) NOT NULL,
+	Sdt VARCHAR(10) NULL,
 	DiaChi NVARCHAR(MAX),
-	TongTien bigint not null,
+	TongTien bigint null,
 	TinhTrang BIT
 )
 INSERT INTO [dbo].[HoaDon] VALUES('HD1',1,2,'2022-11-27','0123123123',NULL,1,0)

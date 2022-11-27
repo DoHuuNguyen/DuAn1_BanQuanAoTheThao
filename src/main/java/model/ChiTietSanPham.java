@@ -66,6 +66,12 @@ public class ChiTietSanPham {
         this.ngaySua = ngaySua;
     }
 
+    public ChiTietSanPham(MonTheThao idMonTheThao, MauSac IdMauSac, Size IdSize) {
+        this.idMonTheThao = idMonTheThao;
+        this.IdMauSac = IdMauSac;
+        this.IdSize = IdSize;
+    }
+    
     
 
     public int getSoLuong() {

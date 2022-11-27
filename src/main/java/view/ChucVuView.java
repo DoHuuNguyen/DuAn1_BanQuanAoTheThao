@@ -24,7 +24,6 @@ public class ChucVuView extends javax.swing.JFrame {
         txt_id.disable();
         Loadtable();
         setLocationRelativeTo(null);
-
     }
 
     void Loadtable() {
@@ -80,9 +79,6 @@ public class ChucVuView extends javax.swing.JFrame {
         btn_them = new javax.swing.JButton();
         btn_sua = new javax.swing.JButton();
         btn_xoa = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Id");
 
@@ -132,13 +128,6 @@ public class ChucVuView extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Exit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,7 +156,6 @@ public class ChucVuView extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(57, 57, 57)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
                     .addComponent(btn_them)
                     .addComponent(btn_sua)
                     .addComponent(btn_xoa))
@@ -177,10 +165,8 @@ public class ChucVuView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jButton1))
-                .addGap(27, 27, 27)
+                .addComponent(jLabel7)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,12 +256,6 @@ public class ChucVuView extends javax.swing.JFrame {
         this.txt_ten.setText(this.tb_chucVu.getValueAt(row, 2).toString());
     }//GEN-LAST:event_tb_chucVuMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new ManHinhQuanLy().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -315,7 +295,6 @@ public class ChucVuView extends javax.swing.JFrame {
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
     private javax.swing.JButton btn_xoa;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

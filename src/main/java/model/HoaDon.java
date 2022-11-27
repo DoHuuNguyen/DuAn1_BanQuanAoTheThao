@@ -56,11 +56,13 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(Integer id, NguoiDung idNguoiDung, HinhThucThanhToan idHinhThucThanhToan, List<HoaDonChiTiet> hoaDonChiTiets) {
+    public HoaDon(Integer id,String ma ,NguoiDung idNguoiDung, HinhThucThanhToan idHinhThucThanhToan, List<HoaDonChiTiet> hoaDonChiTiets,Date ngayMua) {
+        this.ma = ma;
         this.id = id;
         this.idNguoiDung = idNguoiDung;
         this.idHinhThucThanhToan = idHinhThucThanhToan;
         this.hoaDonChiTiets = hoaDonChiTiets;
+        this.ngayMua = new java.sql.Date(new Date().getTime());
     }
 
     
