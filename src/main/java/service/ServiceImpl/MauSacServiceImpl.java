@@ -31,4 +31,9 @@ public class MauSacServiceImpl implements QuanLyMauSac{
     public void delete(Integer id) {
         this.msR.delete(id);
     }
+
+    @Override
+    public ArrayList<String> selectMa() {
+        return this.msR.selectMa();
+    }
 }
