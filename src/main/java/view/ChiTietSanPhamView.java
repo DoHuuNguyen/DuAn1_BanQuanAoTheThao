@@ -313,7 +313,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
             return;
         }
-        this.ctspS.update(ctsp, Integer.valueOf(txtID.getText()));
+        this.ctspS.update(ct, Integer.valueOf(txtID.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load();
         clear();

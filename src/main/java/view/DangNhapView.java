@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import model.Account;
 import model.NguoiDung;
@@ -66,6 +67,12 @@ public class DangNhapView extends javax.swing.JFrame {
         btn_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelActionPerformed(evt);
+            }
+        });
+
+        txt_pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passKeyPressed(evt);
             }
         });
 
@@ -145,6 +152,8 @@ public class DangNhapView extends javax.swing.JFrame {
                this.setVisible(false);
                new ManHinhQuanLy(getNguoiDung()).setVisible(true);
            }else{
+               this.setVisible(false);
+               new ManHinhNhanVien(getNguoiDung()).setVisible(true);
                JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
            }
        }
@@ -154,6 +163,23 @@ public class DangNhapView extends javax.swing.JFrame {
         new DoiMatKhauView().setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_quenMatKhauActionPerformed
+
+    private void txt_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passKeyPressed
+        if (evt.getKeyChar()==KeyEvent.VK_ENTER) {
+            if(qlas.search(txt_user.getText().trim(), txt_pass.getText().trim())!=null){
+           if(qlnd.email(txt_user.getText().trim()).getIdChucVu().getId()==1){
+               JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
+               this.setVisible(false);
+               new ManHinhQuanLy(getNguoiDung()).setVisible(true);
+           }else{
+               this.setVisible(false);
+               new ManHinhNhanVien(getNguoiDung()).setVisible(true);
+               JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
+           }
+       }
+        }
+        
+    }//GEN-LAST:event_txt_passKeyPressed
 
     /**
      * @param args the command line arguments
