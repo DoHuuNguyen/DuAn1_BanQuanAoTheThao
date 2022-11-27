@@ -2,15 +2,15 @@ package view;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import model.NguoiDung;
 
 public class ManHinhNhanVien extends javax.swing.JFrame {
     private NguoiDung ng;
     public ManHinhNhanVien() {
         initComponents();
-        initComponents();
         setLocationRelativeTo(null);
-        fillData(ng);
+        JOptionPane.showMessageDialog(this, "nó vào đây");
     }
     public ManHinhNhanVien(NguoiDung ng) {
         initComponents();

@@ -140,9 +140,7 @@ public class DangNhapView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-        JOptionPane.showMessageDialog(this, "Thoát thành công");
+     System.exit(0);
     }//GEN-LAST:event_btn_cancelActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
@@ -152,10 +150,13 @@ public class DangNhapView extends javax.swing.JFrame {
                this.setVisible(false);
                new ManHinhQuanLy(getNguoiDung()).setVisible(true);
            }else{
+               JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
                this.setVisible(false);
                new ManHinhNhanVien(getNguoiDung()).setVisible(true);
-               JOptionPane.showMessageDialog(this, "Đăng nhập Thành công!");
+               
            }
+       }else{
+           JOptionPane.showMessageDialog(this, "tài khoản hoặc mật khẩu không đúng");
        }
     }//GEN-LAST:event_btn_loginActionPerformed
 

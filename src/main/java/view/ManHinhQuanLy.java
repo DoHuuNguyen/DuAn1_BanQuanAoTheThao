@@ -14,8 +14,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         this.ng = ng;
         initComponents();
         setLocationRelativeTo(null);
-        fillData(ng);
-        
+        fillData(ng);     
     }
     public ImageIcon resizeImage(String imgPath) {
         ImageIcon imageIcon = new ImageIcon(imgPath);

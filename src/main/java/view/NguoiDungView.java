@@ -377,10 +377,10 @@ public class NguoiDungView extends javax.swing.JFrame {
             }
         }
         
-        if(txt_email.getText().trim().equals(this.qlnd.email(txt_email.getText().trim()))){
-            JOptionPane.showMessageDialog(this, "email đã tồn tại");
-            return;
-        }
+//        if(txt_email.getText().trim().equals(this.qlnd.email(txt_email.getText().trim()))){
+//            JOptionPane.showMessageDialog(this, "email đã tồn tại");
+//            return;
+//        }
         this.qlnd.insert(nd);
         
         this.qlAc.insert(createAccount(nd));
