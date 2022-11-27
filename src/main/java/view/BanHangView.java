@@ -92,6 +92,14 @@ public class BanHangView extends javax.swing.JFrame {
             dtm.addRow(row);
         }
     }
+    public HoaDonChiTiet getHoaDonChiTiet() {
+        int row = tb_giohang.getSelectedRow();
+        if (row >= 0) {
+            Integer id = (Integer) tb_giohang.getValueAt(row, 0);
+            return qlCTHD.search(id);
+        }
+        return null;
+    }
     public void addRowHoaDon(ArrayList<HoaDon> list) {
         int stt = 1;
         dtm = (DefaultTableModel) tblHoaDon.getModel();
@@ -215,6 +223,7 @@ public class BanHangView extends javax.swing.JFrame {
         cbbMauSac = new javax.swing.JComboBox<>();
         cbbMonTT = new javax.swing.JComboBox<>();
         cbbSIZE = new javax.swing.JComboBox<>();
+        btnXoa = new javax.swing.JButton();
 
         tblHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -422,6 +431,13 @@ public class BanHangView extends javax.swing.JFrame {
 
         cbbSIZE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Size" }));
 
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -430,9 +446,12 @@ public class BanHangView extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnXoa)))
                         .addGap(40, 40, 40)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -476,7 +495,9 @@ public class BanHangView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(btnXoa))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
@@ -582,6 +603,19 @@ public class BanHangView extends javax.swing.JFrame {
         addRowHoaDon(this.qlHD.select( ng));
     }//GEN-LAST:event_rdoALLMouseClicked
 
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        int row = tb_giohang.getSelectedRow();
+        if (row < 0) {
+            JOptionPane.showMessageDialog(rootPane, "Hệ thống chưa hiểu yêu cầu !");
+        } else {
+            if (getHoaDon().getTinhTrang() == 1) {
+                JOptionPane.showMessageDialog(rootPane, "Khong the them !");
+            } else {
+                
+            }
+        }
+    }//GEN-LAST:event_btnXoaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -619,6 +653,7 @@ public class BanHangView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThanhToan;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JButton btntaoHD;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbbHTTT;
