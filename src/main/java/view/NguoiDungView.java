@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.ChucVu;
 import model.NguoiDung;
+import service.QuanLyChucVuServices;
 import service.QuanLyNguoiDung;
+import service.ServiceImpl.ChucVuServicesImpl;
 import service.ServiceImpl.NguoiDungimpl;
 
 /**
@@ -23,6 +25,7 @@ public class NguoiDungView extends javax.swing.JFrame {
     private DefaultTableModel defaultTableModel;
     private DefaultComboBoxModel defaultComboBoxModel;
     private QuanLyNguoiDung qlnd = new NguoiDungimpl();
+    private QuanLyChucVuServices qlcv = new ChucVuServicesImpl();
 
     /**
      * Creates new form NguoiDungView
@@ -55,7 +58,9 @@ public class NguoiDungView extends javax.swing.JFrame {
     }
 
     public void addCbxidchucvu() {
-
+        defaultComboBoxModel = (DefaultComboBoxModel)this.cbx_chucvu.getModel();
+        defaultComboBoxModel.addAll(qlcv.getList());
+        cbx_chucvu.setSelectedIndex(0);
     }
 
     private NguoiDung getForm() {
