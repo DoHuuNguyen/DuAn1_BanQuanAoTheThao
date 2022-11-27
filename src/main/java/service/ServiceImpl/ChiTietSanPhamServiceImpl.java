@@ -36,4 +36,14 @@ public class ChiTietSanPhamServiceImpl implements QuanLyChiTietSanPham{
     public ArrayList<String> selectMa() {
         return this.ctspR.selectMa();
     }
+
+    @Override
+    public ChiTietSanPham searchID(Integer id) {
+        return this.ctspR.searchById(id);
+    }
+
+    @Override
+    public void updateSL(Integer id, int soLuong) {
+        this.ctspR.updateSoLuong(id, soLuong);
+    }
 }

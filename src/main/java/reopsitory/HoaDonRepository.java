@@ -4,6 +4,7 @@ import hibernateConfig.HibernateConfig;
 import java.util.ArrayList;
 import javax.persistence.Query;
 import model.HoaDon;
+import model.NguoiDung;
 import org.hibernate.Session;
 
 public class HoaDonRepository {
@@ -13,7 +14,7 @@ public class HoaDonRepository {
         this.session = HibernateConfig.getFACTORY().openSession();
     }
     
-    public ArrayList<HoaDon> getList(String nguoiDung){
+    public ArrayList<HoaDon> getList(NguoiDung nguoiDung){
         session = HibernateConfig.getFACTORY().openSession();
         String query = "from HoaDon where idNguoiDung=:idNguoiDung";
         Query q = session.createQuery(query);
@@ -21,7 +22,7 @@ public class HoaDonRepository {
         return (ArrayList<HoaDon>)q.getResultList();
     }
     
-    public ArrayList<HoaDon> getListTrangThai(String ng, String tinhTrang){
+    public ArrayList<HoaDon> getListTrangThai(NguoiDung ng, int tinhTrang){
         session = HibernateConfig.getFACTORY().openSession();
         String query = "From HoaDon where idNguoiDung=:idNguoiDung and tinhTrang =: tinhTrang";
         Query q = session.createQuery(query);
@@ -35,12 +36,12 @@ public class HoaDonRepository {
         session.save(hd);
         session.getTransaction().commit();
     }
-    public void update(HoaDon hd, Integer id){
+    public void update(String maHd){
         session.beginTransaction();
-        String query = "Update HoaDon set tinhTrang =:tinhTrang where id=:id";
-        Query q = session.createQuery(query);
-        q.setParameter("TinhTrang", 1);
-        q.setParameter("id", id);
+        String query = "update HoaDon set tinhTrang =:tinhTrang where ma =:ma";
+        org.hibernate.query.Query q = session.createQuery(query);
+        q.setParameter("tinhTrang", 1);
+        q.setParameter("ma", maHd);
         q.executeUpdate();
         session.getTransaction().commit();
     }

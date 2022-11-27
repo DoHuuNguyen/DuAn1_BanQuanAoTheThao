@@ -46,4 +46,9 @@ public class NguoiDungimpl implements QuanLyNguoiDung {
         return this.ndrp.selectMa();
     }
 
+    @Override
+    public NguoiDung email(String email) {
+        return this.ndrp.searchByEmail(email);
+    }
+
 }

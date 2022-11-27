@@ -6,6 +6,7 @@ package reopsitory;
 
 import hibernateConfig.HibernateConfig;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Query;
 import model.NguoiDung;
 import org.hibernate.Session;
@@ -38,10 +39,10 @@ public class NguoiDungRepository {
 
     public void update(Integer id, NguoiDung nd) {
         session.beginTransaction();
-        String query = "Update NguoiDung set ma=:ma, Ten=:ten,GioiTinh=:GioiTinh,NgaySinh=:NgaySinh,Email=:Email,DiaChi=:DiaChi,IdChucVu=:IdChucVu,Anh=:Anh, ngaySua=:ngaySua where id=:id";
+        String query = "Update NguoiDung set ma=:ma, HoTen=:HoTen,GioiTinh=:GioiTinh,NgaySinh=:NgaySinh,Email=:Email,DiaChi=:DiaChi,IdChucVu=:IdChucVu,Anh=:Anh, ngaySua=:ngaySua where id=:id";
         Query q = session.createQuery(query);
         q.setParameter("ma", nd.getMa());
-        q.setParameter("ten", nd.getHoTen());
+        q.setParameter("HoTen", nd.getHoTen());
         q.setParameter("GioiTinh", nd.getGioiTinh());
         q.setParameter("NgaySinh", nd.getNgaySinh());
         q.setParameter("Email", nd.getEmail());
@@ -67,5 +68,12 @@ public class NguoiDungRepository {
         Query q = session.createQuery(query);
         ArrayList<String> list = (ArrayList<String>) q.getResultList();
         return list;
+    }
+    public NguoiDung searchByEmail(String email){
+        String query = "from NguoiDung where email =:email";
+        org.hibernate.query.Query q = session.createQuery(query);
+        q.setParameter("email", email);
+        List list = q.getResultList();
+        return (NguoiDung) list.get(0);
     }
 }

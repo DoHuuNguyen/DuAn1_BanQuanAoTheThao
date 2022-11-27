@@ -36,9 +36,12 @@ public class ChiTietSanPham {
     @JoinColumn(name = "IdSize")
     private Size IdSize;
     
-     @Column (name = "TrangThai")
+    @Column (name = "TrangThai")
     private int trangThai;
-    
+    @Column (name = "Gia")
+    private int gia;
+    @Column (name = "soLuong")
+    private int soLuong;
     @Column (name = "NgayThem")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date ngayThem;
@@ -50,15 +53,36 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(Integer id, String ma, MonTheThao idMonTheThao, MauSac IdMauSac, Size IdSize, int trangThai, Date ngayThem, Date ngaySua) {
+    public ChiTietSanPham(Integer id, String ma, MonTheThao idMonTheThao, MauSac IdMauSac, Size IdSize, int trangThai, int gia, int soLuong, Date ngayThem, Date ngaySua) {
         this.id = id;
         this.ma = ma;
         this.idMonTheThao = idMonTheThao;
         this.IdMauSac = IdMauSac;
         this.IdSize = IdSize;
         this.trangThai = trangThai;
+        this.gia = gia;
+        this.soLuong = soLuong;
         this.ngayThem = new java.sql.Date(new Date().getTime());
         this.ngaySua = ngaySua;
+    }
+
+    
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+    
+
+    public int getGia() {
+        return gia;
+    }
+
+    public void setGia(int gia) {
+        this.gia = gia;
     }
 
     public Integer getId() {

@@ -56,6 +56,15 @@ public class HoaDon {
     public HoaDon() {
     }
 
+    public HoaDon(Integer id, NguoiDung idNguoiDung, HinhThucThanhToan idHinhThucThanhToan, List<HoaDonChiTiet> hoaDonChiTiets) {
+        this.id = id;
+        this.idNguoiDung = idNguoiDung;
+        this.idHinhThucThanhToan = idHinhThucThanhToan;
+        this.hoaDonChiTiets = hoaDonChiTiets;
+    }
+
+    
+    
     public HoaDon(Integer id, String ma, NguoiDung idNguoiDung, HinhThucThanhToan idHinhThucThanhToan, Date ngayMua, String sdt, String diaChi, long tongTien, int tinhTrang, List<HoaDonChiTiet> hoaDonChiTiets) {
         this.id = id;
         this.ma = ma;

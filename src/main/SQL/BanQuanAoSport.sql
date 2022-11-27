@@ -1,3 +1,5 @@
+﻿use master
+go
 Drop database DuAn1_BanQuanAoSport
 go
 create database DuAn1_BanQuanAoSport
@@ -13,6 +15,10 @@ create table MonTheThao
 	NgaySua DATE,
 	TrangThai bit
 )
+INSERT INTO [dbo].[MonTheThao] VALUES ('BD',N'Bóng Đá' ,NULL ,NULL,1)
+INSERT INTO [dbo].[MonTheThao] VALUES ('BC',N'Bóng Chuyền' ,NULL ,NULL,1)
+INSERT INTO [dbo].[MonTheThao] VALUES ('CL',N'Cầu Lông' ,NULL ,NULL,1)
+go
 create table MauSac
 (
 	Id int identity(1,1) PRIMARY KEY NOT NULL,
@@ -22,6 +28,10 @@ create table MauSac
 	NgaySua DATE,
 	TrangThai bit
 )
+INSERT INTO [dbo].[MauSac] VALUES('ms1',N'Đỏ',NULL,NULL,1)
+INSERT INTO [dbo].[MauSac] VALUES('ms2',N'vàng',NULL,NULL,1)
+INSERT INTO [dbo].[MauSac] VALUES('ms3',N'Đen Ánh Đỏ formula',NULL,NULL,1)
+go
 create table Size
 (
 	Id int identity(1,1) PRIMARY KEY NOT NULL,
@@ -31,6 +41,10 @@ create table Size
 	NgaySua DATE,
 	TrangThai bit
 )
+INSERT INTO [dbo].[Size] VALUES ('s1','L',NULL,NULL,1)
+INSERT INTO [dbo].[Size] VALUES ('s2','S',NULL,NULL,1)
+INSERT INTO [dbo].[Size] VALUES ('s3','XL',NULL,NULL,1)
+go
 create table ChiTietSanPham
 (
 	Id int identity(1,1) PRIMARY KEY NOT NULL,
@@ -38,10 +52,16 @@ create table ChiTietSanPham
 	IdMonTheThao int not null FOREIGN KEY REFERENCES MonTheThao(Id),
 	IdMauSac int not null FOREIGN KEY REFERENCES MauSac(Id),
 	IdSize int not null FOREIGN KEY REFERENCES Size(Id),
+	Gia int,
+        soLuong int,
 	NgayThem DATE,
 	NgaySua DATE,
 	TrangThai bit
 )
+INSERT INTO [dbo].[ChiTietSanPham] VALUES('SP1',1,1,3,50000,50,NULL,NULL,1)
+INSERT INTO [dbo].[ChiTietSanPham] VALUES('SP3',1,2,1,70000,10,NULL,NULL,1)
+INSERT INTO [dbo].[ChiTietSanPham] VALUES('SP2',2,1,2,55000,100,NULL,NULL,1)
+go
 CREATE TABLE ChucVu(
 	Id int identity(1,1) NOT NULL PRIMARY KEY,
 	Ma NVARCHAR(10) NOT NULL,
@@ -50,6 +70,9 @@ CREATE TABLE ChucVu(
 	NgaySua DATE, 
 	TrangThai bit
 ) 
+INSERT INTO [dbo].[ChucVu] VALUES('QL','ADMIN',NULL,NULL,1)
+INSERT INTO [dbo].[ChucVu] VALUES('NV',N'Nhân Viên Bán Hàng',NULL,NULL,1)
+go
 CREATE TABLE NguoiDung(
 	Id int identity(1,1) NOT NULL PRIMARY KEY,
 	Ma NVARCHAR(10) NOT NULL,
@@ -64,6 +87,8 @@ CREATE TABLE NguoiDung(
 	NgaySua DATE,
 	TrangThai bit
 )
+INSERT INTO [dbo].[NguoiDung] VALUES('NV1',N'Đỗ Hữu Nguyện',1,'2003-06-14','nguyen@gmail.com',N'Tuyên Quang',1,NULL,NULL,NULL,1)
+go
 CREATE TABLE HinhThucThanhToan(
 	Id int identity(1,1) PRIMARY KEY,
 	Ma NVARCHAR(10) NOT NULL,
@@ -72,6 +97,10 @@ CREATE TABLE HinhThucThanhToan(
 	NgaySua DATE,
 	TrangThai bit not null
 )
+INSERT INTO [dbo].[HinhThucThanhToan] VALUES ('HT1',N'Chuyển Khoản',NULL,NULL,1)
+INSERT INTO [dbo].[HinhThucThanhToan] VALUES ('HT2',N'Tiền Mặt',NULL,NULL,1)
+INSERT INTO [dbo].[HinhThucThanhToan] VALUES ('HT3',N'Quẹt Thẻ',NULL,NULL,1)
+go
 CREATE TABLE HoaDon(
 	Id int identity(1,1) NOT NULL PRIMARY KEY,
 	Ma NVARCHAR(10) NOT NULL,
@@ -83,6 +112,8 @@ CREATE TABLE HoaDon(
 	TongTien bigint not null,
 	TinhTrang BIT
 )
+INSERT INTO [dbo].[HoaDon] VALUES('HD1',1,2,'2022-11-27','0123123123',NULL,1,0)
+go
 CREATE TABLE HoaDonChiTiet(
 	Id int identity(1,1) PRIMARY KEY,
 	IdHoaDon int FOREIGN KEY REFERENCES dbo.HoaDon(Id) NOT NULL,
@@ -115,3 +146,4 @@ CREATE TABLE Account(
 	IdNguoiDung int FOREIGN KEY REFERENCES dbo.NguoiDung(Id) NOT NULL,
 	TrangThai int
 )
+INSERT INTO [dbo].[Account] VALUES('nguyen@gmail.com','1',1,1)

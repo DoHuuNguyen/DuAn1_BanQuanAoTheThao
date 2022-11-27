@@ -9,4 +9,6 @@ public interface QuanLyChiTietSanPham {
     void update(ChiTietSanPham ctsp, Integer id);
     void delete(Integer id);
     ArrayList<String> selectMa();
+    ChiTietSanPham searchID(Integer id);
+    void updateSL(Integer id, int soLuong);
 }

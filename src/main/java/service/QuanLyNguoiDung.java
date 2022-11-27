@@ -17,4 +17,5 @@ public interface QuanLyNguoiDung {
     void update(NguoiDung nd, Integer id);
     void delete(Integer id);
     ArrayList<String> selectma();
+    NguoiDung email(String email);
 }
