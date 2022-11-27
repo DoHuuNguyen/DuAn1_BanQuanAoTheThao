@@ -7,7 +7,7 @@ import model.ChucVu;
 import org.hibernate.Session;
 
 public class ChucVuRepository {
-           private Session session;
+    private Session session;
 
     public ChucVuRepository() {
         this.session = HibernateConfig.getFACTORY().openSession();
