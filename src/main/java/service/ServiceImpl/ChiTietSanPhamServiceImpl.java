@@ -51,4 +51,9 @@ public class ChiTietSanPhamServiceImpl implements QuanLyChiTietSanPham{
     public ArrayList<ChiTietSanPham> loc(ChiTietSanPham ctsp) {
         return this.ctspR.loc(ctsp);
     }
+
+    @Override
+    public Integer selectSoLuongTon(int id) {
+        return this.ctspR.searchSoLuongTon(id);
+    }
 }

@@ -41,13 +41,13 @@ public class HoaDonChiTietRepository {
         return (long) q.getResultList().get(0);
     }
     
-    public void delete(Integer id, HoaDon hd){
+    public void delete(Integer id){
         session.beginTransaction();
-        String query = "delete from HoaDonChiTiet where id =:id and idHoaDon =:idHoaDon";
+        String query = "delete from HoaDonChiTiet where id =:id";
         Query q = session.createQuery(query);
         q.setParameter("id", id);
-        q.setParameter("idHoaDon", hd);
         q.executeUpdate();
         session.getTransaction().commit();
     }
+    
 }

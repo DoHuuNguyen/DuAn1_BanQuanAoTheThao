@@ -34,7 +34,7 @@ public class HoaDonChiTietServiceImpl implements QuanLyChiTietHoaDon{
     }
 
     @Override
-    public void delete(Integer id, HoaDon hd) {
-        hdctRp.delete(id, hd);
+    public void delete(Integer id) {
+        hdctRp.delete(id);
     }
 }

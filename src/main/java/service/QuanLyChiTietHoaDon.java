@@ -9,5 +9,5 @@ public interface QuanLyChiTietHoaDon {
     void insert(HoaDonChiTiet hdct);
     HoaDonChiTiet search(Integer id);
     long getThanhTien(HoaDon hd);
-    void delete(Integer id, HoaDon hd);
+    void delete(Integer id);
 }

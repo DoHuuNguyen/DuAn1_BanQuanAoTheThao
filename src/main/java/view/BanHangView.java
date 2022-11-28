@@ -356,6 +356,9 @@ public class BanHangView extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtTienKhachDuaKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTienKhachDuaKeyTyped(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -703,6 +706,11 @@ public class BanHangView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Không thể xóa sản phẩm khi hóa đơn đã thanh toán !");
             } else {
                 DefaultTableModel tbmode = (DefaultTableModel) tb_giohang.getModel();
+                int IdSp = Integer.parseInt(tb_giohang.getValueAt(row, 2).toString());
+                int SLThayDoi = Integer.parseInt(tb_giohang.getValueAt(row, 2).toString())+qlSP.selectSoLuongTon(IdSp);
+                this.qlSP.updateSL(IdSp, SLThayDoi);
+                this.qlCTHD.delete(Integer.parseInt(tb_giohang.getValueAt(row, 0).toString()));
+                loadSanPham(this.qlSP.getList());
                 tbmode.removeRow(row);
                 JOptionPane.showMessageDialog(rootPane, "Xóa Sản Phẩm Thành Công!");
             }
@@ -732,6 +740,10 @@ public class BanHangView extends javax.swing.JFrame {
     private void cbbSIZEItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbSIZEItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbSIZEItemStateChanged
+
+    private void txtTienKhachDuaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTienKhachDuaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTienKhachDuaKeyTyped
 
     /**
      * @param args the command line arguments
