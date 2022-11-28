@@ -86,8 +86,8 @@ public class ChiTietSanPhamRepository {
     }
     public ArrayList<ChiTietSanPham> loc(ChiTietSanPham ctsp){
         session = HibernateConfig.getFACTORY().openSession();
-        Query q = session.createQuery("from ChiTietSanPham where IdMonTheThao =:IdMonTheThao or IdMauSac =:IdMauSac or IdSize =:IdSize"
-                + "or trangThai =:trangThai");
+        Query q = session.createQuery("from ChiTietSanPham where IdMonTheThao =:IdMonTheThao and IdMauSac =:IdMauSac and IdSize =:IdSize"
+                + "and trangThai =:trangThai");
         q.setParameter("IdMonTheThao", ctsp.getIdMonTheThao());
         q.setParameter("IdMauSac", ctsp.getIdMauSac());
         q.setParameter("IdSize", ctsp.getIdSize());

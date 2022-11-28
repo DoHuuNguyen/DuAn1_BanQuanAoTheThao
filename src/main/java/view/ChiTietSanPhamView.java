@@ -20,7 +20,9 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     private QuanLySize qlsize = new SizeServiceImlp();
     private QuanLyMonTheThao qlMtt = new MonTheThaoServiceImpl();
     private QuanLyMauSac qlMs = new MauSacServiceImpl();
-    DefaultComboBoxModel dcbb;
+    DefaultComboBoxModel dcbb_MonTT;
+    DefaultComboBoxModel dcbb_Size;
+    DefaultComboBoxModel dcbb_MauSac;
     DefaultTableModel dtm;
     ChiTietSanPham ctsp = new ChiTietSanPham();
     
@@ -34,18 +36,18 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     }
     
     private void loadCBBMonTT(){
-        dcbb = (DefaultComboBoxModel)this.cbbMonTT.getModel();
-        dcbb.addAll(qlMtt.getList());
+        dcbb_MonTT = (DefaultComboBoxModel)this.cbbMonTT.getModel();
+        dcbb_MonTT.addAll(qlMtt.getList());
         cbbMonTT.setSelectedIndex(0);
     }
     private void loadCBBSize(){
-        dcbb = (DefaultComboBoxModel)this.CbbSize.getModel();
-        dcbb.addAll(qlsize.getList());
+        dcbb_Size = (DefaultComboBoxModel)this.CbbSize.getModel();
+        dcbb_Size.addAll(qlsize.getList());
         CbbSize.setSelectedIndex(0);
     }
     private void loadCBBmauSac(){
-        dcbb = (DefaultComboBoxModel)this.cbbMauSac.getModel();
-        dcbb.addAll(qlMs.getList());
+        dcbb_MauSac = (DefaultComboBoxModel)this.cbbMauSac.getModel();
+        dcbb_MauSac.addAll(qlMs.getList());
         cbbMauSac.setSelectedIndex(0);
     }
     private void load(){
@@ -81,6 +83,21 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         this.cbbMauSac.setSelectedIndex(0);
         this.CbbSize.setSelectedIndex(0);
         this.cbbMonTT.setSelectedIndex(0);
+    }
+    private void loadData(int row){
+        dcbb_MonTT = (DefaultComboBoxModel)this.cbbMonTT.getModel();
+        dcbb_Size = (DefaultComboBoxModel)this.CbbSize.getModel();
+        dcbb_MauSac = (DefaultComboBoxModel)this.cbbMauSac.getModel();
+       txtID.setText(tblChiTietSP.getValueAt(row, 0).toString());
+       txtMa.setText(tblChiTietSP.getValueAt(row, 1).toString());
+       dcbb_Size.setSelectedItem(tblChiTietSP.getValueAt(row, 4));
+       dcbb_MauSac.setSelectedItem(tblChiTietSP.getValueAt(row, 3));
+       dcbb_MonTT.setSelectedItem(tblChiTietSP.getValueAt(row, 2));
+       txtSoLuong.setText(tblChiTietSP.getValueAt(row, 5).toString());
+       txtGia.setText(tblChiTietSP.getValueAt(row, 6).toString());
+       CbbSize.setSelectedItem(tblChiTietSP.getValueAt(row, 4));
+       cbbMauSac.setSelectedItem(tblChiTietSP.getValueAt(row, 3));
+       cbbMonTT.setSelectedItem(tblChiTietSP.getValueAt(row, 2));
     }
     
     @SuppressWarnings("unchecked")
@@ -170,6 +187,11 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         });
 
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Giá :");
 
@@ -336,32 +358,30 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        ChiTietSanPham ct = new ChiTietSanPham((MonTheThao)cbbMonTT.getSelectedItem(), (MauSac)cbbMauSac.getSelectedItem(), (Size)CbbSize.getSelectedItem());
-        this.ctspS.loc(ctsp);
-        dtm  = (DefaultTableModel)this.tblChiTietSP.getModel();
-        dtm.setRowCount(0);
-        for (ChiTietSanPham c : this.ctspS.loc(ct)) {
-            Object[] row = {
-              c.getId(),
-                c.getMa(),
-                c.getIdMonTheThao().getTen(),
-                c.getIdMauSac().getTen(),
-                c.getIdSize().getSize()
-            };
-            dtm.addRow(row);
-        }
+//        ChiTietSanPham ct = new ChiTietSanPham((MonTheThao)cbbMonTT.getSelectedItem(), (MauSac)cbbMauSac.getSelectedItem(), (Size)CbbSize.getSelectedItem());
+//        this.ctspS.loc(ctsp);
+//        dtm  = (DefaultTableModel)this.tblChiTietSP.getModel();
+//        dtm.setRowCount(0);
+//        for (ChiTietSanPham c : this.ctspS.loc(ct)) {
+//            Object[] row = {
+//              c.getId(),
+//                c.getMa(),
+//                c.getIdMonTheThao().getTen(),
+//                c.getIdMauSac().getTen(),
+//                c.getIdSize().getSize()
+//            };
+//            dtm.addRow(row);
+//        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void tblChiTietSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChiTietSPMouseClicked
        int row = this.tblChiTietSP.getSelectedRow();
-       txtID.setText(tblChiTietSP.getValueAt(row, 0).toString());
-       txtMa.setText(tblChiTietSP.getValueAt(row, 1).toString());
-       CbbSize.setSelectedItem(tblChiTietSP.getValueAt(row, 4));
-       cbbMauSac.setSelectedItem(tblChiTietSP.getValueAt(row, 3));
-       cbbMonTT.setSelectedItem(tblChiTietSP.getValueAt(row, 2));
-       txtSoLuong.setText(tblChiTietSP.getValueAt(row, 5).toString());
-       txtGia.setText(tblChiTietSP.getValueAt(row, 6).toString());
+        loadData(row);
     }//GEN-LAST:event_tblChiTietSPMouseClicked
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clear();
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments

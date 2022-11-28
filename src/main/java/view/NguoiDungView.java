@@ -10,6 +10,7 @@ import java.sql.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -71,7 +72,19 @@ public class NguoiDungView extends javax.swing.JFrame {
 
         }
     }
-
+    private void loadData(int row){
+        defaultComboBoxModel = (DefaultComboBoxModel) this.cbx_chucvu.getModel();
+        txt_id.setText(tb_nguoidung.getValueAt(row, 0).toString());
+        txt_ma.setText(tb_nguoidung.getValueAt(row, 1).toString());
+        txt_hoten.setText(tb_nguoidung.getValueAt(row, 2).toString());
+        txt_ngaysinh.setText(tb_nguoidung.getValueAt(row, 4).toString());
+        txt_email.setText(tb_nguoidung.getValueAt(row, 5).toString());
+        txt_diachi.setText(tb_nguoidung.getValueAt(row, 6).toString());
+        cbx_gioitinh.setSelectedItem(tb_nguoidung.getValueAt(row, 3).toString());
+        defaultComboBoxModel.setSelectedItem(tb_nguoidung.getValueAt(row, 7));
+        lblImg.setIcon(resizeImage(tb_nguoidung.getValueAt(row, 8).toString()));
+        imgPath=tb_nguoidung.getValueAt(row, 8).toString();
+    }
     private int gt() {
         if (cbx_gioitinh.getSelectedItem() == "Nam") {
             return 1;
@@ -431,15 +444,7 @@ public class NguoiDungView extends javax.swing.JFrame {
 
     private void tb_nguoidungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_nguoidungMouseClicked
         int row = tb_nguoidung.getSelectedRow();
-        txt_id.setText(tb_nguoidung.getValueAt(row, 0).toString());
-        txt_ma.setText(tb_nguoidung.getValueAt(row, 1).toString());
-        txt_hoten.setText(tb_nguoidung.getValueAt(row, 2).toString());
-        txt_ngaysinh.setText(tb_nguoidung.getValueAt(row, 4).toString());
-        txt_email.setText(tb_nguoidung.getValueAt(row, 5).toString());
-        txt_diachi.setText(tb_nguoidung.getValueAt(row, 6).toString());
-        cbx_gioitinh.setSelectedItem(tb_nguoidung.getValueAt(row, 3).toString());
-        cbx_chucvu.setSelectedItem(tb_nguoidung.getValueAt(row, 7).toString());
-        lblImg.setIcon(resizeImage(tb_nguoidung.getValueAt(row, 8).toString()));
+        loadData(row);
     }//GEN-LAST:event_tb_nguoidungMouseClicked
 
     private void lblImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgMouseClicked

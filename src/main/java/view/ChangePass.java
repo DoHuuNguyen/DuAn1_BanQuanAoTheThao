@@ -56,7 +56,7 @@ public class ChangePass extends javax.swing.JFrame {
             }
         });
 
-        btnCancer.setText("Cancer");
+        btnCancer.setText("Cancel");
         btnCancer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancerActionPerformed(evt);

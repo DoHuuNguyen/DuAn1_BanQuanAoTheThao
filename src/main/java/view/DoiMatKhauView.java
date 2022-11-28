@@ -61,7 +61,7 @@ private static final String PASSWOR_STRING = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a
             }
         });
 
-        btnCancer.setText("Cancer");
+        btnCancer.setText("Cancel");
         btnCancer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancerActionPerformed(evt);
