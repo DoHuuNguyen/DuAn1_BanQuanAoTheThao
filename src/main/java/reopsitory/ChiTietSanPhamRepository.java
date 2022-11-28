@@ -32,7 +32,7 @@ public class ChiTietSanPhamRepository {
         String query = "update ChiTietSanPham set Ma =:ma, IdMonTheThao =:IdMonTheThao, "
                 + "IdMauSac =:IdMauSac, IdSize =:IdSize, ngaySua =:ngaySua, Gia =: gia,soLuong=:soLuong where id =:id";
         Query q = session.createQuery(query);
-        q.setParameter("Ma", ctsp.getMa());
+        q.setParameter("ma", ctsp.getMa());
         q.setParameter("IdMonTheThao", ctsp.getIdMonTheThao());
         q.setParameter("IdMauSac", ctsp.getIdMauSac());
         q.setParameter("IdSize", ctsp.getIdSize());

@@ -356,9 +356,9 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
        int row = this.tblChiTietSP.getSelectedRow();
        txtID.setText(tblChiTietSP.getValueAt(row, 0).toString());
        txtMa.setText(tblChiTietSP.getValueAt(row, 1).toString());
-       CbbSize.setSelectedItem(tblChiTietSP.getValueAt(row, 4).toString());
-       cbbMauSac.setSelectedItem(tblChiTietSP.getValueAt(row, 3).toString());
-       cbbMonTT.setSelectedItem(tblChiTietSP.getValueAt(row, 2).toString());
+       CbbSize.setSelectedItem(tblChiTietSP.getValueAt(row, 4));
+       cbbMauSac.setSelectedItem(tblChiTietSP.getValueAt(row, 3));
+       cbbMonTT.setSelectedItem(tblChiTietSP.getValueAt(row, 2));
        txtSoLuong.setText(tblChiTietSP.getValueAt(row, 5).toString());
        txtGia.setText(tblChiTietSP.getValueAt(row, 6).toString());
     }//GEN-LAST:event_tblChiTietSPMouseClicked
