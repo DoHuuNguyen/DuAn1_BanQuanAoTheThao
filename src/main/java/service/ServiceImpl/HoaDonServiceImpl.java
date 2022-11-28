@@ -54,5 +54,9 @@ public class HoaDonServiceImpl implements QuanLyHoaDon{
     public void updateTongTien(Integer id, long tongTien) {
         this.hdrp.updateTongTien(id, tongTien);
     }
+    @Override
+    public long turnover(int month) {
+        return hdrp.turnover(month);
+    }
     
 }

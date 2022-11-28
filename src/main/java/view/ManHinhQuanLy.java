@@ -65,6 +65,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         menuNhanVien = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        menuDoanhThuHangThang = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -287,6 +288,15 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
                 jMenu3MouseClicked(evt);
             }
         });
+
+        menuDoanhThuHangThang.setText("Doanh Thu Hàng Tháng");
+        menuDoanhThuHangThang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDoanhThuHangThangActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuDoanhThuHangThang);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -386,6 +396,11 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         new ChucVuView().setVisible(true);
     }//GEN-LAST:event_menuCVActionPerformed
 
+    private void menuDoanhThuHangThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDoanhThuHangThangActionPerformed
+        DoanhThu dt = new DoanhThu();
+        dt.setVisible(true);
+    }//GEN-LAST:event_menuDoanhThuHangThangActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -446,6 +461,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
     private javax.swing.JLabel lblNgaySinh;
     private javax.swing.JLabel lblTenNV;
     private javax.swing.JMenuItem menuCV;
+    private javax.swing.JMenuItem menuDoanhThuHangThang;
     private javax.swing.JMenuItem menuHTTR;
     private javax.swing.JMenuItem menuMauSac;
     private javax.swing.JMenuItem menuMonTT;
