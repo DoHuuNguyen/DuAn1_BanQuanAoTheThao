@@ -486,6 +486,11 @@ public class BanHangView extends javax.swing.JFrame {
         cbbMauSac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Màu Sắc" }));
 
         cbbMonTT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Môn Thể Thao" }));
+        cbbMonTT.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbMonTTItemStateChanged(evt);
+            }
+        });
 
         cbbSIZE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Size" }));
         cbbSIZE.addItemListener(new java.awt.event.ItemListener() {
@@ -708,8 +713,10 @@ public class BanHangView extends javax.swing.JFrame {
                 DefaultTableModel tbmode = (DefaultTableModel) tb_giohang.getModel();
                 int IdSp = Integer.parseInt(tb_giohang.getValueAt(row, 2).toString());
                 int SLThayDoi = Integer.parseInt(tb_giohang.getValueAt(row, 2).toString())+qlSP.selectSoLuongTon(IdSp);
-                this.qlSP.updateSL(IdSp, SLThayDoi);
+                this.qlSP.updateSL(IdSp, SLThayDoi); 
                 this.qlCTHD.delete(Integer.parseInt(tb_giohang.getValueAt(row, 0).toString()));
+                int tongTien = Integer.parseInt(txtTongTien.getText())-Integer.parseInt(tb_giohang.getValueAt(row, 5).toString());
+                txtTongTien.setText(String.valueOf(tongTien));
                 loadSanPham(this.qlSP.getList());
                 tbmode.removeRow(row);
                 JOptionPane.showMessageDialog(rootPane, "Xóa Sản Phẩm Thành Công!");
@@ -744,6 +751,12 @@ public class BanHangView extends javax.swing.JFrame {
     private void txtTienKhachDuaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTienKhachDuaKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTienKhachDuaKeyTyped
+
+    private void cbbMonTTItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbMonTTItemStateChanged
+        // TODO add your handling code here:
+        String ten = cbbMonTT.getSelectedItem().toString();
+        JOptionPane.showMessageDialog(this, ten);
+    }//GEN-LAST:event_cbbMonTTItemStateChanged
 
     /**
      * @param args the command line arguments
