@@ -125,7 +125,6 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         txtGia = new javax.swing.JTextField();
         txtSoLuong = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("Quản Lý Sản Phẩm");
@@ -197,13 +196,6 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
 
         jLabel8.setText("Số Lượng:");
 
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,9 +238,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                     .addComponent(btnXoa)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(btnClear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearch)))
+                        .addComponent(btnClear)))
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -285,9 +275,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnXoa)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnClear)
-                            .addComponent(btnSearch))))
+                        .addComponent(btnClear)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CbbSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -357,23 +345,6 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_btnXoaActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-//        ChiTietSanPham ct = new ChiTietSanPham((MonTheThao)cbbMonTT.getSelectedItem(), (MauSac)cbbMauSac.getSelectedItem(), (Size)CbbSize.getSelectedItem());
-//        this.ctspS.loc(ctsp);
-//        dtm  = (DefaultTableModel)this.tblChiTietSP.getModel();
-//        dtm.setRowCount(0);
-//        for (ChiTietSanPham c : this.ctspS.loc(ct)) {
-//            Object[] row = {
-//              c.getId(),
-//                c.getMa(),
-//                c.getIdMonTheThao().getTen(),
-//                c.getIdMauSac().getTen(),
-//                c.getIdSize().getSize()
-//            };
-//            dtm.addRow(row);
-//        }
-    }//GEN-LAST:event_btnSearchActionPerformed
-
     private void tblChiTietSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChiTietSPMouseClicked
        int row = this.tblChiTietSP.getSelectedRow();
         loadData(row);
@@ -421,7 +392,6 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbbSize;
     private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
