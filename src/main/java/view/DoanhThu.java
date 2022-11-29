@@ -19,8 +19,8 @@ public class DoanhThu  extends javax.swing.JFrame{
     
     public static JFreeChart createChart() {
         JFreeChart barChart = ChartFactory.createBarChart(
-                "Bieu do doanh thu trong cac thang",
-                "Thang", "Doanh thu",
+                "Biểu đồ doanh thu trong các tháng",
+                "Tháng", "Doanh Thu",
                 createDataset(), PlotOrientation.VERTICAL, false, false, false);
         return barChart;
     }
@@ -28,7 +28,7 @@ public class DoanhThu  extends javax.swing.JFrame{
     private static CategoryDataset createDataset() {
         final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 1; i <= 12; i++) {
-            dataset.addValue(qlHd.turnover(i), "Doanh thu", i+"");
+            dataset.addValue(qlHd.turnover(i), "Doanh Thu", i+"");
         }
         return dataset;
     }

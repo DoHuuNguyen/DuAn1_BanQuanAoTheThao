@@ -22,6 +22,7 @@ public class HinhThucThanhToanView extends javax.swing.JFrame {
     private QuanLyHinhThucThanhToan qlhtt = new HinhThucThanhToanSeviceimpl();
     public HinhThucThanhToanView() {
         initComponents();
+        setLocationRelativeTo(null);
         load();
     }
     private void clear(){
