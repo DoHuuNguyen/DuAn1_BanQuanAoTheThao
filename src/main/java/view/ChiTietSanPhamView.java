@@ -1,13 +1,17 @@
 package view;
 
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import model.ChiTietSanPham;
 import model.MauSac;
 import model.MonTheThao;
 import model.Size;
+import reopsitory.ExcelHelper;
 import service.QuanLyMauSac;
 import service.QuanLyMonTheThao;
 import service.QuanLySize;
@@ -18,6 +22,7 @@ import service.ServiceImpl.SizeServiceImlp;
 
 public class ChiTietSanPhamView extends javax.swing.JFrame {
 
+    private ExcelHelper excelHelper = new ExcelHelper();
     private ChiTietSanPhamServiceImpl ctspS = new ChiTietSanPhamServiceImpl();
     private QuanLySize qlsize = new SizeServiceImlp();
     private QuanLyMonTheThao qlMtt = new MonTheThaoServiceImpl();
@@ -158,6 +163,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         btnTienSP = new javax.swing.JButton();
         lblTrangSP = new javax.swing.JLabel();
         btnLuiSP = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("Quản Lý Sản Phẩm");
@@ -245,6 +251,13 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Xuất File");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -294,13 +307,16 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnThem)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnThem)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
                             .addComponent(btnSua)
                             .addComponent(btnXoa)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(btnClear)))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +342,9 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(cbbMauSac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnThem)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnThem)
+                            .addComponent(jButton1))
                         .addGap(18, 18, 18)
                         .addComponent(btnSua)
                         .addGap(18, 18, 18)
@@ -444,6 +462,16 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLuiSPActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int choose = JOptionPane.showConfirmDialog(this, "Bạn Muốn Xuất File ?");
+        if (choose == JOptionPane.YES_OPTION) {
+            excelHelper.writeFileExcel(ctspS.getList());
+            JOptionPane.showMessageDialog(rootPane, "Xuất thành công !");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Hủy Xuất File !");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -489,6 +517,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbbMauSac;
     private javax.swing.JComboBox<String> cbbMonTT;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

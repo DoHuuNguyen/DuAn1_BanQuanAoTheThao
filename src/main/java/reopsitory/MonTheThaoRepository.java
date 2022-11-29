@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 public class MonTheThaoRepository {
+
     private Session session;
 
     public MonTheThaoRepository() {
@@ -39,7 +40,8 @@ public class MonTheThaoRepository {
         q.executeUpdate();
         session.getTransaction().commit();
     }
-    public void delete(Integer id){
+
+    public void delete(Integer id) {
         session.beginTransaction();
         String query = "Update MonTheThao set trangThai =:trangThai WHERE id=:id";
         Query q = session.createQuery(query);
@@ -48,10 +50,12 @@ public class MonTheThaoRepository {
         q.executeUpdate();
         session.getTransaction().commit();
     }
+
     public ArrayList<String> selectMa() {
         String query = "SELECT s.ma from MonTheThao s";
         Query q = session.createQuery(query);
         ArrayList<String> list = (ArrayList<String>) q.getResultList();
         return list;
     }
+
 }

@@ -7,7 +7,8 @@ import model.MauSac;
 import org.hibernate.Session;
 
 public class MauSacRepository {
-        private Session session;
+
+    private Session session;
 
     public MauSacRepository() {
         this.session = HibernateConfig.getFACTORY().openSession();
@@ -39,7 +40,8 @@ public class MauSacRepository {
         q.executeUpdate();
         session.getTransaction().commit();
     }
-    public void delete(Integer id){
+
+    public void delete(Integer id) {
         session.beginTransaction();
         String query = "update MauSac set trangThai =:trangThai WHERE id=:id";
         Query q = session.createQuery(query);
@@ -48,10 +50,12 @@ public class MauSacRepository {
         q.executeUpdate();
         session.getTransaction().commit();
     }
+
     public ArrayList<String> selectMa() {
         String query = "SELECT s.ma from MauSac s";
         Query q = session.createQuery(query);
         ArrayList<String> list = (ArrayList<String>) q.getResultList();
         return list;
     }
+
 }

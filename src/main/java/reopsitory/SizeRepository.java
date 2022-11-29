@@ -3,6 +3,7 @@ package reopsitory;
 import hibernateConfig.HibernateConfig;
 import java.util.ArrayList;
 import javax.persistence.Query;
+import model.MauSac;
 import model.Size;
 import org.hibernate.Session;
 
