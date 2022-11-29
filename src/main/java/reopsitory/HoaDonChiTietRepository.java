@@ -16,7 +16,7 @@ public class HoaDonChiTietRepository {
     
     public ArrayList<HoaDonChiTiet> select(HoaDon hd){
         session = HibernateConfig.getFACTORY().openSession();
-        Query q = session.createQuery("from HoaDonChiTiet where idHoaDon =:idHoaDon");
+        Query q = session.createQuery("from HoaDonChiTiet where idHoaDon =:idHoaDon ");
         q.setParameter("idHoaDon", hd);
         return (ArrayList<HoaDonChiTiet>) q.getResultList();
     }

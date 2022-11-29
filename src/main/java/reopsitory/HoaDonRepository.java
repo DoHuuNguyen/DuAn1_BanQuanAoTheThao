@@ -17,7 +17,7 @@ public class HoaDonRepository {
     
     public ArrayList<HoaDon> getList(NguoiDung nguoiDung){
         session = HibernateConfig.getFACTORY().openSession();
-        String query = "from HoaDon where idNguoiDung=:idNguoiDung";
+        String query = "from HoaDon where idNguoiDung=:idNguoiDung ORDER BY NgayMua DESC";
         Query q = session.createQuery(query);
         q.setParameter("idNguoiDung", nguoiDung);
         return (ArrayList<HoaDon>)q.getResultList();

@@ -154,6 +154,6 @@ public class ChiTietSanPham {
     public void setNgaySua(Date ngaySua) {
         this.ngaySua = ngaySua;
     }
-    
+
     
 }
