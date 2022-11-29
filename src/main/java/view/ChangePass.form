@@ -45,7 +45,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Qu&#xea;n M&#x1ead;t Kh&#x1ea9;u"/>
+            <TitledBorder title="&#x110;&#x1ed5;i M&#x1ead;t Kh&#x1ea9;u"/>
           </Border>
         </Property>
       </Properties>

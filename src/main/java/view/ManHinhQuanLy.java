@@ -14,6 +14,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         this.ng = ng;
         initComponents();
         setLocationRelativeTo(null);
+        this.setTitle("Màn Hình Quản Lý");
         fillData(ng);     
     }
     public ImageIcon resizeImage(String imgPath) {

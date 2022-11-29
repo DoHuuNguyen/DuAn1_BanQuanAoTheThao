@@ -14,6 +14,7 @@ public class DoanhThu  extends javax.swing.JFrame{
     public DoanhThu(){
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Doanh Thu Hàng Tháng");
     }
     private static QuanLyHoaDon qlHd = new HoaDonServiceImpl();
     

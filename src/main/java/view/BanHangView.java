@@ -55,6 +55,7 @@ public class BanHangView extends javax.swing.JFrame {
     public BanHangView(NguoiDung nguoi) {
         this.ng = nguoi;
         initComponents();
+        setTitle("Màn Hình Bán Hàng");
         loadSanPham(this.qlSP.getList());
         addRowGioHang();
         addRowHoaDon(qlHD.select(ng));

@@ -41,7 +41,7 @@ public class ChangePass extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Quên Mật Khẩu"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Đổi Mật Khẩu"));
 
         jLabel1.setText("Email :");
 

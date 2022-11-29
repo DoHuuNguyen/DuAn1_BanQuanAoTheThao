@@ -140,7 +140,7 @@ public class ChiTietSanPham {
     }
 
     public Date getNgayThem() {
-        return ngayThem;
+        return new java.sql.Date(new Date().getTime());
     }
 
     public void setNgayThem(Date ngayThem) {

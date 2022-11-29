@@ -16,6 +16,7 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         this.ng = ng;
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Màn Hinh Nhân Viên");
         fillData(ng);
     }
     public ImageIcon resizeImage(String imgPath) {
