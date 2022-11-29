@@ -70,20 +70,20 @@ public class ExcelHelper {
                 }
 
                 int column_index = cell.getColumnIndex();
-                switch (column_index) {
-                    case COLUMN_INDEX_Ma ->
-                        ctsp.setMa((String) getCellValue(cell));
-                    case COLUMN_INDEX_IDMTT ->
-                        ctsp.setIdMonTheThao(mttrp.search((String) getCellValue(cell)));
-                    case COLUMN_INDEX_IDMAUSAC ->
-                        ctsp.setIdMauSac(mauSacRp.search((String) getCellValue(cell)));
-                    case COLUMN_INDEX_IDSIZE ->
-                        ctsp.setIdSize(sizeRp.search((String) getCellValue(cell)));
-                    case COLUMN_INDEX_IDSL ->
-                        ctsp.setMa((String) getCellValue(cell));
-                    case COLUMN_INDEX_IDGia ->
-                        ctsp.setMa((String) getCellValue(cell));
-                }
+//                switch (column_index) {
+//                    case COLUMN_INDEX_Ma ->
+//                        ctsp.setMa((String) getCellValue(cell));
+//                    case COLUMN_INDEX_IDMTT ->
+//                        ctsp.setIdMonTheThao(mttrp.search((String) getCellValue(cell)));
+//                    case COLUMN_INDEX_IDMAUSAC ->
+//                        ctsp.setIdMauSac(mauSacRp.search((String) getCellValue(cell)));
+//                    case COLUMN_INDEX_IDSIZE ->
+//                        ctsp.setIdSize(sizeRp.search((String) getCellValue(cell)));
+//                    case COLUMN_INDEX_IDSL ->
+//                        ctsp.setMa((String) getCellValue(cell));
+//                    case COLUMN_INDEX_IDGia ->
+//                        ctsp.setMa((String) getCellValue(cell));
+//                }
             }
             list.add(ctsp);
         }

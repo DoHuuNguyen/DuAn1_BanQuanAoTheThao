@@ -114,6 +114,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         this.txtID.setText("");
         this.txtMa.setText("");
         this.txtGia.setText("");
+        this.txtSoLuong.setText("");
         this.cbbMauSac.setSelectedIndex(0);
         this.CbbSize.setSelectedIndex(0);
         this.cbbMonTT.setSelectedIndex(0);
