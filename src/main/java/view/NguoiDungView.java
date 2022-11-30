@@ -104,7 +104,7 @@ public class NguoiDungView extends javax.swing.JFrame {
         String ten = this.txt_hoten.getText().trim();
         int gioiTinh = gt();
         String ngaysinh = this.txt_ngaysinh.getText().trim();
-        Date ngaySinh = (Date.valueOf(ngaysinh));
+        Date ngaySinh ;
         String email = this.txt_email.getText().trim();
         String diachi = this.txt_diachi.getText().trim();
         ChucVu chucvu = (ChucVu) cbx_chucvu.getSelectedItem();
@@ -128,7 +128,12 @@ public class NguoiDungView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập tên Địa Chỉ");
             return null;
         }
-
+        try {
+            ngaySinh = (Date.valueOf(ngaysinh));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ngay sinh sai dinh dang");
+            return null;
+        }
         return new NguoiDung(null, ma, ten, gioiTinh, ngaySinh, email, diachi, chucvu, imgPath, 1, null, null);
 
     }
@@ -404,6 +409,10 @@ public class NguoiDungView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_themActionPerformed
 
     private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
+        if (txt_id.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
+            return;
+        }
         int c = JOptionPane.showConfirmDialog(this, "bạn chăc chắn muốn sửa?");
         if (c != JOptionPane.OK_OPTION) {
             return;
@@ -412,10 +421,7 @@ public class NguoiDungView extends javax.swing.JFrame {
         if (nd == null) {
             return;
         }
-        if (txt_id.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
-            return;
-        }
+        
         this.qlnd.update(nd, Integer.valueOf(txt_id.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load();
