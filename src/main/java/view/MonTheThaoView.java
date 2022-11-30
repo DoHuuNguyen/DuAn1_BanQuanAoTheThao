@@ -15,19 +15,23 @@ import service.ServiceImpl.MonTheThaoServiceImpl;
  * @author Acer
  */
 public class MonTheThaoView extends javax.swing.JFrame {
+
     private QuanLyMonTheThao qlmtt = new MonTheThaoServiceImpl();
+
     public MonTheThaoView() {
         initComponents();
         load();
         setLocationRelativeTo(null);
     }
-    private void clear(){
+
+    private void clear() {
         this.txtId.setText("");
         this.txtma.setText("");
         this.txtTen.setText("");
     }
-    private void load(){
-        DefaultTableModel dtm = (DefaultTableModel)this.tblMonTheThao.getModel();
+
+    private void load() {
+        DefaultTableModel dtm = (DefaultTableModel) this.tblMonTheThao.getModel();
         dtm.setRowCount(0);
         for (MonTheThao m : this.qlmtt.getList()) {
             Object[] row = {
@@ -38,20 +42,22 @@ public class MonTheThaoView extends javax.swing.JFrame {
             dtm.addRow(row);
         }
     }
-    private MonTheThao getForm(){
+
+    private MonTheThao getForm() {
         String ma = this.txtma.getText().trim();
         String ten = this.txtTen.getText().trim();
-        
-        if(ma.length()==0){
+
+        if (ma.length() == 0) {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập mã");
             return null;
         }
-        if(ten.length()==0){
+        if (ten.length() == 0) {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập tên");
             return null;
         }
-        return new MonTheThao(null, ma, ten, 1, null, null);  
+        return new MonTheThao(null, ma, ten, 1, null, null);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -190,24 +196,24 @@ public class MonTheThaoView extends javax.swing.JFrame {
 
     private void tblMonTheThaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMonTheThaoMouseClicked
         int row = this.tblMonTheThao.getSelectedRow();
-        if(row==-1){
+        if (row == -1) {
             return;
         }
-        this.txtId.setText(this.tblMonTheThao.getValueAt(row,0).toString());
+        this.txtId.setText(this.tblMonTheThao.getValueAt(row, 0).toString());
         this.txtma.setText(this.tblMonTheThao.getValueAt(row, 1).toString());
         this.txtTen.setText(this.tblMonTheThao.getValueAt(row, 2).toString());
     }//GEN-LAST:event_tblMonTheThaoMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        if(this.txtId.getText().equals("")){
+        if (this.txtId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
         int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
-        if(c!=JOptionPane.OK_OPTION){
+        if (c != JOptionPane.OK_OPTION) {
             return;
         }
-        
+
         this.qlmtt.delete(Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Xóa thành công");
         load();
@@ -215,21 +221,20 @@ public class MonTheThaoView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        if(this.txtId.getText().equals("")){
+        if (this.txtId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
         int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
-        if(c!=JOptionPane.OK_OPTION){
+        if (c != JOptionPane.OK_OPTION) {
             return;
         }
         MonTheThao s = this.getForm();
-        if(s==null)
-        {
+        if (s == null) {
             return;
         }
-        
-        this.qlmtt.update(s,Integer.parseInt(this.txtId.getText()));
+
+        this.qlmtt.update(s, Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load();
         clear();
@@ -237,8 +242,7 @@ public class MonTheThaoView extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         MonTheThao s = this.getForm();
-        if(s==null)
-        {
+        if (s == null) {
             return;
         }
         for (String string : this.qlmtt.selectma()) {
