@@ -49,6 +49,7 @@ create table ChiTietSanPham
 (
 	Id int identity(1,1) PRIMARY KEY NOT NULL,
 	Ma NVARCHAR(10) not null,
+	Ten nvarchar(max) not null,
 	IdMonTheThao int not null FOREIGN KEY REFERENCES MonTheThao(Id),
 	IdMauSac int not null FOREIGN KEY REFERENCES MauSac(Id),
 	IdSize int not null FOREIGN KEY REFERENCES Size(Id),

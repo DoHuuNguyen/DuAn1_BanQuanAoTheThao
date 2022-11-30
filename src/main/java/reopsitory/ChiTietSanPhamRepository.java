@@ -29,10 +29,11 @@ public class ChiTietSanPhamRepository {
     
     public void update(Integer id, ChiTietSanPham ctsp){
         session.beginTransaction();
-        String query = "update ChiTietSanPham set Ma =:ma, IdMonTheThao =:IdMonTheThao, "
+        String query = "update ChiTietSanPham set Ma =:ma,Ten =: ten, IdMonTheThao =:IdMonTheThao, "
                 + "IdMauSac =:IdMauSac, IdSize =:IdSize, ngaySua =:ngaySua, Gia =: gia,soLuong=:soLuong where id =:id";
         Query q = session.createQuery(query);
         q.setParameter("ma", ctsp.getMa());
+        q.setParameter("ten", ctsp.getTen());
         q.setParameter("IdMonTheThao", ctsp.getIdMonTheThao());
         q.setParameter("IdMauSac", ctsp.getIdMauSac());
         q.setParameter("IdSize", ctsp.getIdSize());

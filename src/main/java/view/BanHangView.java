@@ -150,6 +150,7 @@ public class BanHangView extends javax.swing.JFrame {
                 Object[] row = {
                     list.get(i).getId(),
                     list.get(i).getMa(),
+                    list.get(i).getTen(),
                     list.get(i).getIdMauSac().getTen(),
                     list.get(i).getIdSize().getSize(),
                     list.get(i).getIdMonTheThao().getTen(),
@@ -370,11 +371,11 @@ public class BanHangView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Mã", "Màu Sắc", "Size", "Môn Thể Thao", "Giá", "Số Lượng"
+                "ID", "Mã", "Tên", "Màu Sắc", "Size", "Môn Thể Thao", "Giá", "Số Lượng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

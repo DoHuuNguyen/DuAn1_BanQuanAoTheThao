@@ -24,6 +24,9 @@ public class ChiTietSanPham {
     @Column (name = "Ma")
     private String ma;
     
+    @Column (name = "Ten")
+    private String Ten;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdMonTheThao")
     private MonTheThao idMonTheThao;
@@ -53,9 +56,10 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(Integer id, String ma, MonTheThao idMonTheThao, MauSac IdMauSac, Size IdSize, int trangThai, int gia, int soLuong, Date ngayThem, Date ngaySua) {
+    public ChiTietSanPham(Integer id, String ma, String Ten, MonTheThao idMonTheThao, MauSac IdMauSac, Size IdSize, int trangThai, int gia, int soLuong, Date ngayThem, Date ngaySua) {
         this.id = id;
         this.ma = ma;
+        this.Ten = Ten;
         this.idMonTheThao = idMonTheThao;
         this.IdMauSac = IdMauSac;
         this.IdSize = IdSize;
@@ -66,10 +70,20 @@ public class ChiTietSanPham {
         this.ngaySua = ngaySua;
     }
 
+    
+
     public ChiTietSanPham(MonTheThao idMonTheThao, MauSac IdMauSac, Size IdSize) {
         this.idMonTheThao = idMonTheThao;
         this.IdMauSac = IdMauSac;
         this.IdSize = IdSize;
+    }
+
+    public String getTen() {
+        return Ten;
+    }
+
+    public void setTen(String Ten) {
+        this.Ten = Ten;
     }
     
     
