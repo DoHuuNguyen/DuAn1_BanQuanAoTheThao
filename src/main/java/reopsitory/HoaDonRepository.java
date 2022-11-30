@@ -63,10 +63,9 @@ public class HoaDonRepository {
         session.getTransaction().commit();
     }
     public long turnover(int month){
-        String query = "select SUM(hd.tongTien) from HoaDon hd where month(hd.ngayMua) =:month and year(hd.ngayMua) = year(getdate()) and tinhTrang =:tinhTrang";
+        String query = "select SUM(hd.tongTien) from HoaDon hd where month(hd.ngayMua) =:month and year(hd.ngayMua) = year(getdate())";
         org.hibernate.query.Query q = session.createQuery(query);
         q.setParameter("month", month);
-        q.setParameter("tinhTrang", 1);
         List list = q.getResultList();
         if (list.get(0) != null) {
             return (long) list.get(0);

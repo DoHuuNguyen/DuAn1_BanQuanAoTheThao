@@ -13,7 +13,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class DoanhThu  extends javax.swing.JFrame{
     public DoanhThu(){
         initComponents();
-        setLocationRelativeTo(null);
     }
     private static QuanLyHoaDon qlHd = new HoaDonServiceImpl();
     
@@ -36,7 +35,7 @@ public class DoanhThu  extends javax.swing.JFrame{
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoanhThu().setVisible(true);
+                new DoanhThu().initComponents();
             }
         });
     }
@@ -47,7 +46,7 @@ public class DoanhThu  extends javax.swing.JFrame{
         JFrame frame = new JFrame();
         frame.add(chartPanel);
         frame.setTitle("Biểu đồ doanh thu cac thang trong nam 2022");
-        frame.setSize(600, 400);
+        frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
