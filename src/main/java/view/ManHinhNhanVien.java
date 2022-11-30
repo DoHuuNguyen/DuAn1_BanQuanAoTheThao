@@ -64,7 +64,8 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         menuHTTR = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        menuDoanhThu = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -251,13 +252,22 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu4);
 
-        jMenu3.setText("Thống Kê");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        menuDoanhThu.setText("Thống Kê");
+        menuDoanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                menuDoanhThuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        menuDoanhThu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDoanhThuActionPerformed(evt);
+            }
+        });
+
+        jMenuItem2.setText("Doanh Thu Hàng Tháng");
+        menuDoanhThu.add(jMenuItem2);
+
+        jMenuBar1.add(menuDoanhThu);
 
         setJMenuBar(jMenuBar1);
 
@@ -324,9 +334,9 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         new BanHangView(ng).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+    private void menuDoanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDoanhThuMouseClicked
 
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_menuDoanhThuMouseClicked
 
     private void btnDoiMKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMKActionPerformed
         dispose();
@@ -337,6 +347,10 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         dispose();
         new DangNhapView().setVisible(true);
     }//GEN-LAST:event_btnDoiMK1ActionPerformed
+
+    private void menuDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDoanhThuActionPerformed
+       new  DoanhThu().setVisible(true);
+    }//GEN-LAST:event_menuDoanhThuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,10 +397,10 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAnh;
     private javax.swing.JLabel lblCHucVu;
@@ -396,6 +410,7 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel lblMa;
     private javax.swing.JLabel lblNgaySinh;
     private javax.swing.JLabel lblTenNV;
+    private javax.swing.JMenu menuDoanhThu;
     private javax.swing.JMenuItem menuHTTR;
     private javax.swing.JMenuItem menuMauSac;
     private javax.swing.JMenuItem menuMonTT;

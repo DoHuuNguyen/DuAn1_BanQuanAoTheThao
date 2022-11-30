@@ -730,7 +730,7 @@ public class BanHangView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Hóa đơn này đã được thanh toán");
             } else {
                 int row = tb_sanpham.getSelectedRow();
-                if (Integer.parseInt(tb_sanpham.getValueAt(row, 6).toString()) < 0) {
+                if (Integer.parseInt(tb_sanpham.getValueAt(row, 7).toString()) < 0) {
                     JOptionPane.showMessageDialog(this, "Sản phẩm đã hết");
                     return;
                 }
@@ -739,7 +739,7 @@ public class BanHangView extends javax.swing.JFrame {
                     return;
                 }
                 String soluong = JOptionPane.showInputDialog("Nhập số lượng :");
-                int soLuongTong = Integer.parseInt(tb_sanpham.getValueAt(row, 6).toString());
+                int soLuongTong = Integer.parseInt(tb_sanpham.getValueAt(row, 7).toString());
                 if (soLuongTong - Integer.parseInt(soluong) < 0) {
                     JOptionPane.showMessageDialog(this, "Không đủ sản phẩm trong kho");
                     return;
