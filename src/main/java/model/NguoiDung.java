@@ -1,7 +1,7 @@
 package model;
 
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,11 +53,9 @@ public class NguoiDung {
     private int trangThai;
     
     @Column(name = "NgayThem")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date ngayThem;
     
     @Column(name = "NgaySua")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date ngaySua;
     
 //    @OneToMany(mappedBy = "idNguoiDung", fetch = FetchType.LAZY)
