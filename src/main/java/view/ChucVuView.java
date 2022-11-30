@@ -210,6 +210,10 @@ public class ChucVuView extends javax.swing.JFrame {
 
     private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
         // TODO add your handling code here:
+        if (this.txt_id.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
+            return;
+        }
         int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
         if (c != JOptionPane.OK_OPTION) {
             return;
@@ -218,10 +222,7 @@ public class ChucVuView extends javax.swing.JFrame {
         if (s == null) {
             return;
         }
-        if (this.txt_id.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
-            return;
-        }
+        
         this.qlcvs.update(s, Integer.parseInt(this.txt_id.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         Loadtable();
@@ -230,14 +231,15 @@ public class ChucVuView extends javax.swing.JFrame {
 
     private void btn_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoaActionPerformed
         // TODO add your handling code here:
-        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
-        if (c != JOptionPane.OK_OPTION) {
-            return;
-        }
         if (this.txt_id.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
+        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
+        if (c != JOptionPane.OK_OPTION) {
+            return;
+        }
+        
         this.qlcvs.delete(Integer.parseInt(this.txt_id.getText()));
         JOptionPane.showMessageDialog(this, "Xóa thành công");
         Loadtable();

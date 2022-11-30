@@ -236,14 +236,15 @@ public class HinhThucThanhToanView extends javax.swing.JFrame {
     }//GEN-LAST:event_tblHinhThucThanhToanMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
-        if(c!=JOptionPane.OK_OPTION){
-            return;
-        }
         if(this.txtId.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
+        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
+        if(c!=JOptionPane.OK_OPTION){
+            return;
+        }
+        
         this.qlhtt.delete(Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Xóa thành công");
         load();
@@ -251,6 +252,10 @@ public class HinhThucThanhToanView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        if(this.txtId.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
+            return;
+        }
         int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
         if(c!=JOptionPane.OK_OPTION){
             return;
@@ -260,10 +265,7 @@ public class HinhThucThanhToanView extends javax.swing.JFrame {
         {
             return;
         }
-        if(this.txtId.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
-            return;
-        }
+        
         this.qlhtt.update(s,Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load();

@@ -392,6 +392,10 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        if (txtID.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
+            return;
+        }
         int c = JOptionPane.showConfirmDialog(this, "bạn chăc chắn muốn sửa?");
         if (c != JOptionPane.OK_OPTION) {
             return;
@@ -400,10 +404,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         if (ct == null) {
             return;
         }
-        if (txtID.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
-            return;
-        }
+        
         this.ctspS.update(ct, Integer.valueOf(txtID.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load(firtRecordSP, this.ctspS.getList());
@@ -411,15 +412,16 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        if (txtID.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
+            return;
+        }
         int c = JOptionPane.showConfirmDialog(this, "bạn chăc chắn muốn xóa?");
         if (c != JOptionPane.OK_OPTION) {
             return;
         }
 
-        if (txtID.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
-            return;
-        }
+        
         this.ctspS.delete(Integer.valueOf(txtID.getText()));
         JOptionPane.showMessageDialog(this, "xóa thành công");
         load(firtRecordSP, this.ctspS.getList());

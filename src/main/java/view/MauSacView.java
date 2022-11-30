@@ -16,21 +16,24 @@ import service.ServiceImpl.MauSacServiceImpl;
  * @author Acer
  */
 public class MauSacView extends javax.swing.JFrame {
+
     private QuanLyMauSac qlms = new MauSacServiceImpl();
+
     public MauSacView() {
         initComponents();
         setLocationRelativeTo(null);
         load();
-        
+
     }
-    
-    private void clear(){
+
+    private void clear() {
         this.txtId.setText("");
         this.txtma.setText("");
         this.txtTen.setText("");
     }
-    private void load(){
-        DefaultTableModel dtm = (DefaultTableModel)this.tblMauSac.getModel();
+
+    private void load() {
+        DefaultTableModel dtm = (DefaultTableModel) this.tblMauSac.getModel();
         dtm.setRowCount(0);
         for (MauSac m : this.qlms.getList()) {
             Object[] row = {
@@ -41,20 +44,22 @@ public class MauSacView extends javax.swing.JFrame {
             dtm.addRow(row);
         }
     }
-    private MauSac getForm(){
+
+    private MauSac getForm() {
         String ma = this.txtma.getText().trim();
         String ten = this.txtTen.getText().trim();
-        
-        if(ma.length()==0){
+
+        if (ma.length() == 0) {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập mã");
             return null;
         }
-        if(ten.length()==0){
+        if (ten.length() == 0) {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập tên");
             return null;
         }
-        return new MauSac(null, ma, ten, 1, null, null);  
+        return new MauSac(null, ma, ten, 1, null, null);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -193,23 +198,24 @@ public class MauSacView extends javax.swing.JFrame {
 
     private void tblMauSacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMauSacMouseClicked
         int row = this.tblMauSac.getSelectedRow();
-        if(row==-1){
+        if (row == -1) {
             return;
         }
-        this.txtId.setText(this.tblMauSac.getValueAt(row,0).toString());
+        this.txtId.setText(this.tblMauSac.getValueAt(row, 0).toString());
         this.txtma.setText(this.tblMauSac.getValueAt(row, 1).toString());
         this.txtTen.setText(this.tblMauSac.getValueAt(row, 2).toString());
     }//GEN-LAST:event_tblMauSacMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
-        if(c!=JOptionPane.OK_OPTION){
-            return;
-        }
-        if(this.txtId.getText().equals("")){
+        if (this.txtId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
+        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
+        if (c != JOptionPane.OK_OPTION) {
+            return;
+        }
+
         this.qlms.delete(Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Xóa thành công");
         load();
@@ -217,20 +223,20 @@ public class MauSacView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
-        if(c!=JOptionPane.OK_OPTION){
-            return;
-        }
-        MauSac s = this.getForm();
-        if(s==null)
-        {
-            return;
-        }
-        if(this.txtId.getText().equals("")){
+        if (this.txtId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
-        this.qlms.update(s,Integer.parseInt(this.txtId.getText()));
+        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
+        if (c != JOptionPane.OK_OPTION) {
+            return;
+        }
+        MauSac s = this.getForm();
+        if (s == null) {
+            return;
+        }
+
+        this.qlms.update(s, Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load();
         clear();
@@ -238,8 +244,7 @@ public class MauSacView extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         MauSac s = this.getForm();
-        if(s==null)
-        {
+        if (s == null) {
             return;
         }
         for (String string : this.qlms.selectMa()) {

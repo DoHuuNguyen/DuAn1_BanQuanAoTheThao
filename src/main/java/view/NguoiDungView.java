@@ -431,15 +431,16 @@ public class NguoiDungView extends javax.swing.JFrame {
 
     private void btn_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoaActionPerformed
         // TODO add your handling code here:
+        if (txt_id.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
+            return;
+        }
         int c = JOptionPane.showConfirmDialog(this, "bạn chăc chắn muốn xóa?");
         if (c != JOptionPane.OK_OPTION) {
             return;
         }
 
-        if (txt_id.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn");
-            return;
-        }
+        
         this.qlnd.delete(Integer.valueOf(txt_id.getText()));
         JOptionPane.showMessageDialog(this, "xóa thành công");
         load();

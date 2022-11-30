@@ -6,14 +6,17 @@ import model.Size;
 import service.ServiceImpl.SizeServiceImlp;
 
 public class SizeView extends javax.swing.JFrame {
+
     private SizeServiceImlp ssi = new SizeServiceImlp();
+
     public SizeView() {
         initComponents();
         setLocationRelativeTo(null);
         load();
     }
-    private void load(){
-        DefaultTableModel dtm = (DefaultTableModel)this.tblSize.getModel();
+
+    private void load() {
+        DefaultTableModel dtm = (DefaultTableModel) this.tblSize.getModel();
         dtm.setRowCount(0);
         for (Size s : this.ssi.getList()) {
             Object[] row = {
@@ -24,25 +27,28 @@ public class SizeView extends javax.swing.JFrame {
             dtm.addRow(row);
         }
     }
-    private void clear(){
+
+    private void clear() {
         this.txtId.setText("");
         this.txtSize.setText("");
         this.txtma.setText("");
     }
-    private Size getForm(){
+
+    private Size getForm() {
         String ma = this.txtma.getText().trim();
         String size = this.txtSize.getText().trim();
-        
-        if(ma.length()==0){
-            JOptionPane.showMessageDialog(this,"Bạn chưa nhập mã");
+
+        if (ma.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập mã");
             return null;
         }
-        if(size.length()==0){
-            JOptionPane.showMessageDialog(this,"Bạn chưa nhập size");
+        if (size.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập size");
             return null;
         }
         return new Size(null, ma, size, 1, null, null);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -182,11 +188,10 @@ public class SizeView extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         Size s = this.getForm();
-        if(s==null)
-        {
+        if (s == null) {
             return;
         }
-        if(!this.ssi.checkMa(s)){
+        if (!this.ssi.checkMa(s)) {
             JOptionPane.showMessageDialog(this, "Trùng mã");
             return;
         }
@@ -197,19 +202,19 @@ public class SizeView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
-        if(c!=JOptionPane.OK_OPTION){
-            return;
-        }
-        Size s = this.getForm();
-        if(s==null)
-        {
-            return;
-        }
-        if(this.txtId.getText().equals("")){
+        if (this.txtId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
+        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn sửa?");
+        if (c != JOptionPane.OK_OPTION) {
+            return;
+        }
+        Size s = this.getForm();
+        if (s == null) {
+            return;
+        }
+
         this.ssi.update(Integer.parseInt(this.txtId.getText()), s);
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load();
@@ -218,23 +223,24 @@ public class SizeView extends javax.swing.JFrame {
 
     private void tblSizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSizeMouseClicked
         int row = this.tblSize.getSelectedRow();
-        if(row==-1){
+        if (row == -1) {
             return;
         }
-        this.txtId.setText(this.tblSize.getValueAt(row,0).toString());
+        this.txtId.setText(this.tblSize.getValueAt(row, 0).toString());
         this.txtma.setText(this.tblSize.getValueAt(row, 1).toString());
         this.txtSize.setText(this.tblSize.getValueAt(row, 2).toString());
     }//GEN-LAST:event_tblSizeMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
-        if(c!=JOptionPane.OK_OPTION){
-            return;
-        }
-        if(this.txtId.getText().equals("")){
+        if (this.txtId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng");
             return;
         }
+        int c = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa?");
+        if (c != JOptionPane.OK_OPTION) {
+            return;
+        }
+
         this.ssi.delete(Integer.parseInt(this.txtId.getText()));
         JOptionPane.showMessageDialog(this, "Xóa thành công");
         load();
