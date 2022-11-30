@@ -72,7 +72,7 @@ public class BanHangView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         txtTienThua.disable();
         txtTongTien.disable();
-
+        b.setEditable(false);
         loadSanPham(firtRecordSP, this.qlSP.getList());
         listSP = qlSP.getList();
         setPageSP(qlSP.getList().size());
@@ -660,13 +660,12 @@ public class BanHangView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btntaoHD))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(109, 109, 109)))))
                 .addGap(13, 13, 13))
         );
         layout.setVerticalGroup(
@@ -800,7 +799,10 @@ public class BanHangView extends javax.swing.JFrame {
         qlHD.insert(create());
         dtm = (DefaultTableModel) tb_giohang.getModel();
         dtm.setRowCount(0);
-        addRowHoaDon(firtRecordHD, qlHD.select(ng));
+        addRowHoaDon(firtRecordHD, qlHD.select(0, ng));
+        setPageHD(qlHD.select(0, ng).size());
+        setAnimationHD(tempHD, soTrangHD);
+        rdoChuaTT.setSelected(true);
         clear();
     }//GEN-LAST:event_btntaoHDActionPerformed
 
