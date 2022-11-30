@@ -95,10 +95,20 @@ public class ChiTietSanPhamRepository {
         ArrayList<ChiTietSanPham> list = (ArrayList<ChiTietSanPham>) q.getResultList();
         return list;
     }
-    public Integer searchSoLuongTon(int id){
+    public Integer searchSoLuongTon(String id){
         session = HibernateConfig.getFACTORY().openSession();
-        Query q = session.createQuery("select soLuong from ChiTietSanPham where Id =: Id");
-        q.setParameter("Id", id);
+        Query q = session.createQuery("select soLuong from ChiTietSanPham where Ma =: Ma");
+        q.setParameter("Ma", id);
         return (Integer) q.getResultList().get(0);
+    }
+     public void updateSoLuongTen(String id, int soLuong){
+        session.beginTransaction();
+        String query = "update ChiTietSanPham set soLuong=:soLuong \n"
+                + "where Ma =:Ma";
+        Query q = session.createQuery(query);
+        q.setParameter("soLuong", soLuong);
+        q.setParameter("Ma", id);
+        q.executeUpdate();
+        session.getTransaction().commit();
     }
 }

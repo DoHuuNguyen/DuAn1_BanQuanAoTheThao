@@ -685,14 +685,15 @@ public class BanHangView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rdoDaTT)
-                            .addComponent(rdoChuaTT)
-                            .addComponent(rdoALL)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnLui)
                                 .addComponent(btnTien)
-                                .addComponent(lblTrangHD))))
+                                .addComponent(lblTrangHD))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(rdoDaTT)
+                                .addComponent(rdoChuaTT)
+                                .addComponent(rdoALL))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -832,12 +833,12 @@ public class BanHangView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Hệ thống chưa hiểu yêu cầu !");
         } else {
             if (getHoaDon().getTinhTrang() == 1) {
-                JOptionPane.showMessageDialog(rootPane, "Không thể xóa sản phẩm khi hóa đơn đã thanh toán !");
+                JOptionPane.showMessageDialog(rootPane, "Không thể xóaIdSp sản phẩm khi hóa đơn đã thanh toán !");
             } else {
                 DefaultTableModel tbmode = (DefaultTableModel) tb_giohang.getModel();
-                int IdSp = Integer.parseInt(tb_giohang.getValueAt(row, 2).toString());
-                int SLThayDoi = Integer.valueOf(tb_giohang.getValueAt(row, 2).toString()) + qlSP.selectSoLuongTon(IdSp);
-                this.qlSP.updateSL(IdSp, SLThayDoi);
+                String IdSp = tb_giohang.getValueAt(row, 2).toString();
+                int SLThayDoi = Integer.valueOf(tb_giohang.getValueAt(row, 3).toString()) + qlSP.selectSoLuongTon(IdSp);
+                this.qlSP.updateNe(IdSp, SLThayDoi);
                 this.qlCTHD.delete(Integer.valueOf(tb_giohang.getValueAt(row, 0).toString()));
                 int tongTien = Integer.parseInt(txtTongTien.getText()) - Integer.parseInt(tb_giohang.getValueAt(row, 5).toString());
                 txtTongTien.setText(String.valueOf(tongTien));

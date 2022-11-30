@@ -12,5 +12,6 @@ public interface QuanLyChiTietSanPham {
     ChiTietSanPham searchID(Integer id);
     void updateSL(Integer id, int soLuong);
     ArrayList<ChiTietSanPham> loc(ChiTietSanPham ctsp);
-    Integer selectSoLuongTon(int id);
+    Integer selectSoLuongTon(String id);
+    void updateNe(String id, int soLuong);
 }

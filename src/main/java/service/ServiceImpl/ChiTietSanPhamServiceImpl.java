@@ -53,7 +53,12 @@ public class ChiTietSanPhamServiceImpl implements QuanLyChiTietSanPham{
     }
 
     @Override
-    public Integer selectSoLuongTon(int id) {
+    public Integer selectSoLuongTon(String id) {
         return this.ctspR.searchSoLuongTon(id);
+    }
+
+    @Override
+    public void updateNe(String id, int soLuong) {
+        this.ctspR.updateSoLuongTen(id, soLuong);
     }
 }

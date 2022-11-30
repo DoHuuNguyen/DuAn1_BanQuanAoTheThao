@@ -107,14 +107,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="159" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="rdoDaTT" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rdoChuaTT" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rdoALL" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnLui" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnTien" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblTrangHD" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rdoDaTT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rdoChuaTT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rdoALL" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
