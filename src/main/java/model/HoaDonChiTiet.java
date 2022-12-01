@@ -51,6 +51,13 @@ public class HoaDonChiTiet {
         this.trangThai = trangThai;
     }
 
+    public HoaDonChiTiet(ChiTietSanPham idSanPham, int soLuong, int thanhTien) {
+        this.idSanPham = idSanPham;
+        this.soLuong = soLuong;
+        this.thanhTien = thanhTien;
+    }
+     
+
     public Integer getId() {
         return id;
     }
