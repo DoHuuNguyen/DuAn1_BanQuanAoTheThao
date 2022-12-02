@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.table.DefaultTableModel;
 import model.HoaDonChiTiet;
+import model.NguoiDung;
 import reopsitory.ThongKeRepository;
 
 public class ThongKeChiTiet extends javax.swing.JFrame {
@@ -59,7 +60,6 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,11 +199,13 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
 
         jLabel8.setText("Top 5 nhân viên ưu tú");
 
-        jMenu1.setText("File");
+        jMenu1.setText("Hóa Đơn");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -243,6 +245,10 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        new ThongKeGanChiTiet().setVisible(true);
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,7 +295,6 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
