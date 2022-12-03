@@ -24,7 +24,7 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
 //    private void TbSanPham(){
 //        DefaultTableModel dtm = (DefaultTableModel) tbl_Top5SP.getModel();
 //        dtm.setRowCount(0);
-//        for (HoaDonChiTiet h : tkR.top5Sp()) {
+//        for (HoaDonChiTiet h : tkR.search()) {
 //            Object[] row={
 //              h.getIdSanPham().getMa(),
 //                h.getIdSanPham().getTen(),
