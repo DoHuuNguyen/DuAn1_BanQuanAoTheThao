@@ -67,6 +67,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         menuDoanhThuHangThang = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -298,6 +299,14 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         });
         jMenu3.add(menuDoanhThuHangThang);
 
+        jMenuItem2.setText("Thống Kê");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -402,6 +411,10 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
         dt.setVisible(true);
     }//GEN-LAST:event_menuDoanhThuHangThangActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        new ThongKeChiTiet().setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -452,6 +465,7 @@ public class ManHinhQuanLy extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAnh;
     private javax.swing.JLabel lblCHucVu;

@@ -66,6 +66,7 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         menuDoanhThu = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -265,7 +266,20 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
         });
 
         jMenuItem2.setText("Doanh Thu Hàng Tháng");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         menuDoanhThu.add(jMenuItem2);
+
+        jMenuItem3.setText("Thống Kê");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuDoanhThu.add(jMenuItem3);
 
         jMenuBar1.add(menuDoanhThu);
 
@@ -352,6 +366,15 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
        new  DoanhThu().setVisible(true);
     }//GEN-LAST:event_menuDoanhThuActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+         DoanhThu dt = new DoanhThu();
+        dt.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        new ThongKeGanChiTiet().setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -401,6 +424,7 @@ public class ManHinhNhanVien extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAnh;
     private javax.swing.JLabel lblCHucVu;
