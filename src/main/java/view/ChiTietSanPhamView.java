@@ -12,6 +12,7 @@ import model.MauSac;
 import model.MonTheThao;
 import model.Size;
 import reopsitory.ExcelHelper;
+import service.QuanLyChiTietSanPham;
 import service.QuanLyMauSac;
 import service.QuanLyMonTheThao;
 import service.QuanLySize;
@@ -23,7 +24,7 @@ import service.ServiceImpl.SizeServiceImlp;
 public class ChiTietSanPhamView extends javax.swing.JFrame {
 
     private ExcelHelper excelHelper = new ExcelHelper();
-    private ChiTietSanPhamServiceImpl ctspS = new ChiTietSanPhamServiceImpl();
+    private QuanLyChiTietSanPham ctspS = new ChiTietSanPhamServiceImpl();
     private QuanLySize qlsize = new SizeServiceImlp();
     private QuanLyMonTheThao qlMtt = new MonTheThaoServiceImpl();
     private QuanLyMauSac qlMs = new MauSacServiceImpl();
@@ -142,6 +143,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
 
     private void clear() {
         this.txtID.setText("");
+        this.txtTen.setText("");
         this.txtMa.setText("");
         this.txtGia.setText("");
         this.txtSoLuong.setText("");

@@ -199,6 +199,7 @@ public class NguoiDungView extends javax.swing.JFrame {
         cbx_chucvu = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         lblImg = new javax.swing.JLabel();
+        btn_clear = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("NGƯỜI DÙNG");
@@ -299,6 +300,13 @@ public class NguoiDungView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btn_clear.setText("Clear");
+        btn_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -326,7 +334,9 @@ public class NguoiDungView extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(btn_sua)
                         .addGap(28, 28, 28)
-                        .addComponent(btn_xoa))
+                        .addComponent(btn_xoa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_clear))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,7 +362,7 @@ public class NguoiDungView extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
                                 .addComponent(txt_ngaysinh)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -373,7 +383,8 @@ public class NguoiDungView extends javax.swing.JFrame {
                             .addComponent(btn_them)
                             .addComponent(btn_sua)
                             .addComponent(btn_xoa)
-                            .addComponent(jLabel13))
+                            .addComponent(jLabel13)
+                            .addComponent(btn_clear))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,6 +513,11 @@ public class NguoiDungView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblImgMouseClicked
 
+    private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
+        // TODO add your handling code here:
+        this.clear();
+    }//GEN-LAST:event_btn_clearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -538,6 +554,7 @@ public class NguoiDungView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_clear;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
     private javax.swing.JButton btn_xoa;
