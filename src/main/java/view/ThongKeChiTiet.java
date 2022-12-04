@@ -4,6 +4,7 @@ import javax.swing.table.DefaultTableModel;
 import model.HoaDonChiTiet;
 import model.NguoiDung;
 import reopsitory.ThongKeRepository;
+import reopsitory.Top;
 
 public class ThongKeChiTiet extends javax.swing.JFrame {
     private ThongKeRepository tkR = new ThongKeRepository();
@@ -11,7 +12,8 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         load();
-        //TbSanPham();
+        TbSanPham();
+        TbNguoiDung();
     }
     private void load(){
         lblTongHoaDon.setText(String.valueOf(tkR.tongHoaDon()));
@@ -21,19 +23,32 @@ public class ThongKeChiTiet extends javax.swing.JFrame {
         lblTien_Ctt.setText(String.valueOf(tkR.tongTienTT(0))+" VND");
         lblTien_Datt.setText(String.valueOf(tkR.tongTienTT(1))+" VND");
     }
-//    private void TbSanPham(){
-//        DefaultTableModel dtm = (DefaultTableModel) tbl_Top5SP.getModel();
-//        dtm.setRowCount(0);
-//        for (HoaDonChiTiet h : tkR.search()) {
-//            Object[] row={
-//              h.getIdSanPham().getMa(),
-//                h.getIdSanPham().getTen(),
-//                h.getSoLuong(),
-//                h.getThanhTien()
-//            };
-//            dtm.addRow(row);
-//        }
-//    }
+    private void TbSanPham(){
+        DefaultTableModel dtm = (DefaultTableModel) tbl_Top5SP.getModel();
+        dtm.setRowCount(0);
+        for (Top h : tkR.SelectTopSP()) {
+            Object[] row={
+              h.getMa(),
+                h.getTen(),
+                h.getSoLuong(),
+                h.getTien()
+            };
+            dtm.addRow(row);
+        }
+    }
+    private void TbNguoiDung(){
+        DefaultTableModel dtm = (DefaultTableModel) tblNhanVienUuTu.getModel();
+        dtm.setRowCount(0);
+        for (Top h : tkR.SelectTopND()) {
+            Object[] row={
+              h.getMa(),
+                h.getTen(),
+                h.getSoLuong(),
+                h.getTien()
+            };
+            dtm.addRow(row);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
