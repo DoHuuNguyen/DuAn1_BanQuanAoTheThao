@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JFileChooser;
 import model.ChiTietSanPham;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -92,7 +93,7 @@ public class ExcelHelper {
         return list;
     }
 
-    public void writeFileExcel(ArrayList<ChiTietSanPham> list) {
+    public void writeFileExcel(ArrayList<ChiTietSanPham> list,JFileChooser duongdan) {
         try {
             XSSFWorkbook workbook = new XSSFWorkbook();
             XSSFSheet sheet = workbook.createSheet("danh_sach");
@@ -154,9 +155,9 @@ public class ExcelHelper {
 
             }
 
-            File f = new File("H:\\WriteFileWriteFile.xlsx");
+            File f = new File(duongdan.getSelectedFile().getPath());
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream(f);
+                FileOutputStream fileOutputStream = new FileOutputStream(f+".xlsx");
                 workbook.write(fileOutputStream);
                 fileOutputStream.close();
             } catch (Exception e) {
@@ -203,9 +204,9 @@ public class ExcelHelper {
         }
         return cellValue;
     }
-
-    public static void main(String[] args) throws IOException {
-        ExcelHelper ex = new ExcelHelper();
-        ex.writeFileExcel(ex.readFileExcel("H:\\FileData.xlsx"));
-    }
+//
+//    public static void main(String[] args) throws IOException {
+//        ExcelHelper ex = new ExcelHelper();
+//        ex.writeFileExcel(ex.readFileExcel("H:\\FileData.xlsx"));
+//    }
 }

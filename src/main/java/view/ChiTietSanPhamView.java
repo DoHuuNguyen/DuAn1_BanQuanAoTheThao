@@ -1,5 +1,6 @@
 package view;
 
+import com.sun.mail.imap.ACL;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -108,8 +109,8 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "bạn chưa nhập mã");
             return null;
         }
-        int gia ;
-        int sl ;
+        int gia;
+        int sl;
         if (ten.length() == 0) {
             JOptionPane.showMessageDialog(this, "bạn chưa nhập mã");
             return null;
@@ -120,7 +121,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         }
         try {
             gia = Integer.parseInt(txtGia.getText().trim());
-            if(gia<0){
+            if (gia < 0) {
                 JOptionPane.showMessageDialog(this, "Giá không được là số âm");
                 return null;
             }
@@ -130,7 +131,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         }
         try {
             sl = Integer.parseInt(txtSoLuong.getText().trim());
-            if(sl<0){
+            if (sl < 0) {
                 JOptionPane.showMessageDialog(this, "số lượng không được là số âm");
                 return null;
             }
@@ -138,7 +139,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "số lượng phải là số");
             return null;
         }
-        return new ChiTietSanPham(null, ma,ten ,(MonTheThao) cbbMonTT.getSelectedItem(), (MauSac) cbbMauSac.getSelectedItem(), (Size) CbbSize.getSelectedItem(), 1, gia, sl, null, null);
+        return new ChiTietSanPham(null, ma, ten, (MonTheThao) cbbMonTT.getSelectedItem(), (MauSac) cbbMauSac.getSelectedItem(), (Size) CbbSize.getSelectedItem(), 1, gia, sl, null, null);
     }
 
     private void clear() {
@@ -451,7 +452,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         if (ct == null) {
             return;
         }
-        
+
         this.ctspS.update(ct, Integer.valueOf(txtID.getText()));
         JOptionPane.showMessageDialog(this, "Sửa thành công");
         load(firtRecordSP, this.ctspS.getList());
@@ -468,7 +469,6 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
             return;
         }
 
-        
         this.ctspS.delete(Integer.valueOf(txtID.getText()));
         JOptionPane.showMessageDialog(this, "xóa thành công");
         load(firtRecordSP, this.ctspS.getList());
@@ -515,8 +515,16 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int choose = JOptionPane.showConfirmDialog(this, "Bạn Muốn Xuất File ?");
         if (choose == JOptionPane.YES_OPTION) {
-            excelHelper.writeFileExcel(ctspS.getList());
-            JOptionPane.showMessageDialog(rootPane, "Xuất thành công !");
+            JFileChooser Excel = new JFileChooser();
+            Excel.setDialogTitle("SAVE AS");
+            FileNameExtensionFilter fnef = new FileNameExtensionFilter("EXCEL FILE", "xls", "xlsx");
+            Excel.setFileFilter(fnef);
+            int ex = Excel.showSaveDialog(null);
+            if (ex == JFileChooser.APPROVE_OPTION) {
+                excelHelper.writeFileExcel(ctspS.getList(), Excel);
+                JOptionPane.showMessageDialog(rootPane, "Xuất thành công !");
+            }
+
         } else {
             JOptionPane.showMessageDialog(rootPane, "Hủy Xuất File !");
         }
