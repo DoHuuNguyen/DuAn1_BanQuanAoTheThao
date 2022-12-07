@@ -112,11 +112,7 @@ public class ChiTietSanPhamView extends javax.swing.JFrame {
         int gia;
         int sl;
         if (ten.length() == 0) {
-            JOptionPane.showMessageDialog(this, "bạn chưa nhập mã");
-            return null;
-        }
-        if (ma.length() == 0) {
-            JOptionPane.showMessageDialog(this, "bạn chưa nhập mã");
+            JOptionPane.showMessageDialog(this, "bạn chưa nhập tên");
             return null;
         }
         try {
